@@ -1,9 +1,10 @@
 
 public class Personne {
-	private StringBuffer nom = new StringBuffer("nom Personne");
+	private StringBuffer nom = new StringBuffer("nom - Class Personne");
 	
 	public Personne(){
 	}
+	
 	public Personne(StringBuffer nomPersonne){
 	  nom=nomPersonne;			
 	}
