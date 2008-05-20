@@ -11,7 +11,19 @@ public class Joueur extends Personne{
 		setNom(nomJoueur);
 	}
 	
+	public void setJoueurPrecedent(Joueur j){
+		joueurPrecedent=j;
+	}
+	
 	public void setJoueurSuivant(Joueur j){
-		joueur
+		joueurSuivant=j;
+	}
+	
+	public Joueur getJoueurSuivant(){
+		return joueurSuivant;
+	}
+	
+	public Joueur getJoueurPrecedent(){
+		return joueurPrecedent;
 	}
 }
