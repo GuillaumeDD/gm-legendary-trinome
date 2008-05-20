@@ -9,5 +9,5 @@ public abstract class Jeu {
 	public abstract void initialiser();
 	public abstract void jouer();
 	public abstract boolean fini();
-	public abstract void changerJoueurCourant(Joueur j);
+	public abstract void changerJoueurCourant();
 }
