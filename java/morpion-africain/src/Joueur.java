@@ -27,12 +27,6 @@ public class Joueur extends Personne{
 		return joueurPrecedent;
 	}
 	
-	public void initialiser(Case c){
-/* Test pour savoir si la case est bien libre ? */		
-		c.setLibre(false);
-		c.setJoueur(this);
-	}
-	
 	public void jouer(){
 	}
 }
