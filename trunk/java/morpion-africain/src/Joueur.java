@@ -9,4 +9,5 @@ public abstract class Joueur extends Personne{
 	public abstract Joueur getJoueurSuivant();
 	public abstract Joueur getJoueurPrecedent();
 	public abstract void jouer();
+	public abstract void initialiser();
 }

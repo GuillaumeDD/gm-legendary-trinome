@@ -1,35 +1,28 @@
 
 public class JoueurMorpion extends Joueur{
 	
-	private int caseOccupees[] = new int[3];
-	
-	private JoueurMorpion joueurPrecedent;
-	private JoueurMorpion joueurSuivant;
+	private CaseMorpion caseOccupees;
 	
 	public JoueurMorpion(){
-		for(int i=0;i<3;i++)
-			caseOccupees[i]=0;
 	}
 	
 	public JoueurMorpion(StringBuffer n){
-		for(int i=0;i<3;i++)
-			caseOccupees[i]=0;
 		setNom(n);
 	}
 	
-	public void setJoueurPrecedent(JoueurMorpion j){
+	public void setJoueurPrecedent(Joueur j){
 		joueurPrecedent=j;
 	}
 	
-	public void setJoueurSuivant(JoueurMorpion j){
+	public void setJoueurSuivant(Joueur j){
 		joueurSuivant=j;
 	}
 	
-	public JoueurMorpion getJoueurPrecedent(){
+	public Joueur getJoueurPrecedent(){
 		return joueurPrecedent;
 	}
 	
-	public JoueurMorpion getJoueurSuivant(){
+	public Joueur getJoueurSuivant(){
 		return joueurSuivant;
 	}
 	
@@ -38,12 +31,17 @@ public class JoueurMorpion extends Joueur{
 		c.setLibre(false,this);
 		c.setJoueur(this);
 	}
-	
-	public void jouer(Case origine,Case destination){
+	public void initialiser(){
+		
+	}
+	public void jouer(){
+		
+	}
+	public void jouer(CaseMorpion origine,CaseMorpion destination){
 /* Tests pour savoir si la case destination est libre 
  * et si la case origine est  bien au joueur*/
 		origine.setLibre(true,null);
 		destination.setLibre(false,this);
 	}
-
+	
 }

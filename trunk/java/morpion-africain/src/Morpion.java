@@ -2,10 +2,10 @@
 public class Morpion extends Jeu{
 	private CaseMorpion cases[] = new CaseMorpion[9];
 //on redefinit un joueurCourant de type JoueurMorpion car il doit pouvoir utiliser les méthodes initialiser() et jouer()
-	private JoueurMorpion joueurCourant; 
+	private Joueur joueurCourant; 
 	
 	public Morpion(){
-		
+		joueurCourant=new JoueurMorpion();
 	}
 	
 	public void creerCases(){
