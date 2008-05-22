@@ -1,4 +1,4 @@
 
-public class CaseMorpion {
+public class CaseMorpion extends Case{
 
 }
