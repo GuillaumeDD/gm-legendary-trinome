@@ -26,17 +26,12 @@ public class JoueurMorpion extends Joueur{
 		return joueurSuivant;
 	}
 	
-	public void initialiser(Case c){
+	public void initialiser(CaseMorpion c){
 /* Test pour savoir si la case est bien libre ? */		
 		c.setLibre(false,this);
 		c.setJoueur(this);
 	}
-	public void initialiser(){
-		
-	}
-	public void jouer(){
-		
-	}
+	
 	public void jouer(CaseMorpion origine,CaseMorpion destination){
 /* Tests pour savoir si la case destination est libre 
  * et si la case origine est  bien au joueur*/
