@@ -1,9 +1,9 @@
 
 public class Case {
 
-	private StringBuffer nom = new StringBuffer("Case - Class Case");
+	private StringBuffer nom;
 	private boolean libre;
-	private Joueur joueur = new Joueur(new StringBuffer("Joueur - Class Case"));
+	private Joueur joueur;
 	
 	public Case(){
 	}
