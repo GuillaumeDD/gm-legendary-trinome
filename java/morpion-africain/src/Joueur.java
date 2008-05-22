@@ -1,32 +1,12 @@
 
-public class Joueur extends Personne{
+public abstract class Joueur extends Personne{
 
-	private Joueur joueurPrecedent = new Joueur();
-	private Joueur joueurSuivant   = new Joueur();
+	Joueur joueurPrecedent;
+	Joueur joueurSuivant;
 	
-	public Joueur(){
-	}
-	
-	public Joueur(StringBuffer nomJoueur){
-		setNom(nomJoueur);
-	}
-	
-	public void setJoueurPrecedent(Joueur j){
-		joueurPrecedent=j;
-	}
-	
-	public void setJoueurSuivant(Joueur j){
-		joueurSuivant=j;
-	}
-	
-	public Joueur getJoueurSuivant(){
-		return joueurSuivant;
-	}
-	
-	public Joueur getJoueurPrecedent(){
-		return joueurPrecedent;
-	}
-	
-	public void jouer(){
-	}
+	public abstract void setJoueurPrecedent(Joueur j);
+	public abstract void setJoueurSuivant(Joueur j);
+	public abstract Joueur getJoueurSuivant();
+	public abstract Joueur getJoueurPrecedent();
+	public abstract void jouer();
 }

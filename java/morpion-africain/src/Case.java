@@ -20,8 +20,9 @@ public class Case {
 		return nom;
 	}
 	
-	public void setLibre(boolean lib){
+	public void setLibre(boolean lib,Joueur j){
 		libre=lib;
+		joueur=j;
 	}
 	
 	public boolean getLibre(){
