@@ -1,19 +1,30 @@
 import java.io.*;
 public class Morpion extends Jeu{
-	private CaseMorpion cases[] = new CaseMorpion[9];
+	//private CaseMorpion cases[] = new CaseMorpion[9];
+	private damierMorpion damier;
 //on redefinit un joueurCourant de type JoueurMorpion car il doit pouvoir utiliser les méthodes initialiser() et jouer()
 	private Joueur joueurCourant; 
 	
 	public Morpion(){
+		// on ajoute les deux joueurs
 		super(2);
 		joueurCourant=new JoueurMorpion();
 		joueurs[0]=new JoueurMorpion();
 		joueurs[1]=new JoueurMorpion();
-		joueurCourant=((JoueurMorpion)joueurs[0]);
-		for(int i=0;i<9;i++){
-			cases[i]=new CaseMorpion();
-			cases[i].setLibre(true,null);
-		}
+		
+		joueurs[0].setId(0);
+		joueurs[1].setId(1);
+		
+		joueurs[0].setJoueurPrecedent(joueurs[1]);
+		joueurs[0].setJoueurSuivant(joueurs[1]);
+		joueurs[1].setJoueurPrecedent(joueurs[0]);
+		joueurs[1].setJoueurSuivant(joueurs[0]);
+		
+		// On determine le premier joueur
+		joueurCourant=joueurs[0];
+		
+		damier=new damierMorpion();
+		
 	}
 
 	public void initialiser(){
@@ -26,24 +37,14 @@ public class Morpion extends Jeu{
 			try {
 		        c=Integer.parseInt(entree.readLine());
 			} catch( IOException e ) {e.printStackTrace();}
-			((JoueurMorpion)joueurCourant).initialiser(cases[c-1]);
+			((JoueurMorpion)joueurCourant).initialiser(damier.getCase(c-1));
 			changerJoueurCourant();
 
-// !!! AFFICHAGE EN CONSOLE A SUPPRIMER PLUS TARD !!!
-			char contenuCase;
-				
-			for(int j=0;j<9;j++){
-				contenuCase='-';
-				if(cases[j].getJoueur()==joueurs[0])
-					contenuCase='x';
-				else if(cases[j].getJoueur()==joueurs[1])
-					contenuCase='o';
-				System.out.print(contenuCase);
-				if(j%3==2)
-					System.out.println();
-			}		
-// !!!
+
 		}
+		// !!! AFFICHAGE EN CONSOLE A SUPPRIMER PLUS TARD !!!
+		System.out.println(damier);
+		//!!!
 	}
 	public void jouer(){
 		BufferedReader entree = new BufferedReader(new InputStreamReader(System.in));
@@ -68,6 +69,10 @@ public class Morpion extends Jeu{
 	}
 	
 	public void changerJoueurCourant(){
-		joueurCourant=((JoueurMorpion)joueurCourant.getJoueurSuivant());
+		joueurCourant=joueurCourant.getJoueurSuivant();
+	}
+
+	public JoueurMorpion getJoueur(int id){
+		return (JoueurMorpion)joueurs[id];
 	}
 }

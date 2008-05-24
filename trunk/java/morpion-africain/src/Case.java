@@ -1,23 +1,25 @@
 
 public class Case {
 
-	private StringBuffer nom;
-	private boolean libre;
-	private Joueur joueur;
+	int id;
+	boolean libre;
+	Joueur joueur;
 	
 	public Case(){
+		joueur=null;
+		libre=true;
 	}
 	
-	public Case(StringBuffer nomCase){
-		nom=nomCase;
+	public Case(int identifiant){
+		id=identifiant;
 	}
 	
-	public void setNom(StringBuffer nomCase){
-		nom=nomCase;
+	public void setId(int identifiant){
+		id=identifiant;
 	}
 	
-	public StringBuffer getNom(){
-		return nom;
+	public int getId(){
+		return id;
 	}
 	
 	public void setLibre(boolean lib,Joueur j){
@@ -25,7 +27,7 @@ public class Case {
 		joueur=j;
 	}
 	
-	public boolean getLibre(){
+	public boolean estLibre(){
 		return libre;
 	}
 	
