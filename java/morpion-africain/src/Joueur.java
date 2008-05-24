@@ -3,6 +3,7 @@ public class Joueur extends Personne{
 
 	Joueur joueurPrecedent;
 	Joueur joueurSuivant;
+	int id;
 	
 	public void setJoueurPrecedent(Joueur j){
 		joueurPrecedent=j;
@@ -24,5 +25,13 @@ public class Joueur extends Personne{
 	}
 	
 	public void initialiser(){
+	}
+	
+	public void setId(int identifiant){
+		id=identifiant;
+	}
+	
+	public int getId(){
+		return id;
 	}
 }

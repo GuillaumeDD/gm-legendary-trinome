@@ -1,7 +1,10 @@
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class JoueurMorpion extends Joueur{
 	
-	private CaseMorpion caseOccupees;
+	private List<CaseMorpion> casesOccupees = new ArrayList<CaseMorpion>();
 	
 	public JoueurMorpion(){
 	}
@@ -39,4 +42,19 @@ public class JoueurMorpion extends Joueur{
 		destination.setLibre(false,this);
 	}
 	
+	public void ajouterCaseOccupee(CaseMorpion c){
+		casesOccupees.add(c);
+	}
+	
+	public void supprimerCaseOccupee(CaseMorpion c){
+		casesOccupees.remove(c);		
+	}
+	
+	public boolean estUneCaseOccupee(CaseMorpion c){
+		boolean res=true;
+		if(casesOccupees.indexOf(c)==-1){
+			res=false;
+		}
+		return res;
+	}
 }

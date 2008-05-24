@@ -1,12 +1,12 @@
 
 public class Personne {
-	private StringBuffer nom = new StringBuffer("nom - Class Personne");
+	private StringBuffer nom;
 	
 	public Personne(){
 	}
 	
 	public Personne(StringBuffer nomPersonne){
-	  nom=nomPersonne;			
+	  nom=new StringBuffer(nomPersonne);			
 	}
 	
 	public StringBuffer getNom(){
@@ -14,6 +14,6 @@ public class Personne {
 	}
 	
 	public void setNom(StringBuffer nouveauNom){
-		nom=nouveauNom;
+		nom=new StringBuffer(nouveauNom);
 	}
 }
