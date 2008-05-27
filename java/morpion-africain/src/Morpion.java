@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 public class Morpion extends Jeu{
 	//private CaseMorpion cases[] = new CaseMorpion[9];
 	private damierMorpion damier;
@@ -53,7 +55,7 @@ public class Morpion extends Jeu{
 		o=0;
 		d=0;
 		
-		while(damier.fini()){
+		while(!fini()){
 			//Tant que les case selectionnées ne sont pas valide (ie : o est au joueur et d est libre) on rerentre les valeurs
 			do{
 				try {
@@ -67,6 +69,31 @@ public class Morpion extends Jeu{
 			System.out.println(damier);
 			//!!!
 		}
+	}
+	
+	public boolean fini(){
+		boolean res=false;
+		int[][] gagne=
+	    {
+	        {0,1,2},
+	        {3,4,5},
+	        {6,7,8},
+	        {0,3,6},
+	        {1,4,7},
+	        {2,5,8},
+	        {0,4,8},
+	        {2,4,6}
+	    };
+		
+		List<int> casesJoueur1 = new ArrayList<int>();
+		
+		for(int i=0;i<7;i++){
+			if(damier.getCase(gagne[i][1]).getJoueur()==damier.getCase(gagne[i][2]).getJoueur() && damier.getCase(gagne[i][1]).getJoueur()==damier.getCase(gagne[i][3]).getJoueur()){
+				res=true;
+			}
+		}
+		
+		return res;
 	}
 	
 	public void changerJoueurCourant(){

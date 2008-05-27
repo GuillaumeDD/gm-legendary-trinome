@@ -33,6 +33,7 @@ public class JoueurMorpion extends Joueur{
 /* Test pour savoir si la case est bien libre ? */		
 		c.setLibre(false,this);
 		c.setJoueur(this);
+		ajouterCaseOccupee(c);
 	}
 	
 	public void jouer(CaseMorpion origine,CaseMorpion destination){
@@ -40,6 +41,8 @@ public class JoueurMorpion extends Joueur{
  * et si la case origine est  bien au joueur*/
 		origine.setLibre(true,null);
 		destination.setLibre(false,this);
+		supprimerCaseOccupee(origine);
+		ajouterCaseOccupee(destination);
 	}
 	
 	public void ajouterCaseOccupee(CaseMorpion c){
