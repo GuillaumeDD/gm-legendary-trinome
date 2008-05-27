@@ -46,26 +46,27 @@ public class Morpion extends Jeu{
 		System.out.println(damier);
 		//!!!
 	}
+	
 	public void jouer(){
 		BufferedReader entree = new BufferedReader(new InputStreamReader(System.in));
-		CaseMorpion origine,destination;
 		int o,d;
-		origine=new CaseMorpion();
-		destination=new CaseMorpion();
+		o=0;
+		d=0;
 		
-
-		while(!fini()){
-			try {
-		        o=Integer.parseInt(entree.readLine());
-		        System.out.println("Vous avez tape :"+o);
-			} catch( IOException e ) {e.printStackTrace();}
-			((JoueurMorpion)joueurCourant).jouer(origine,destination);
+		while(damier.fini()){
+			//Tant que les case selectionnées ne sont pas valide (ie : o est au joueur et d est libre) on rerentre les valeurs
+			do{
+				try {
+					o=Integer.parseInt(entree.readLine());
+					d=Integer.parseInt(entree.readLine());
+				} catch( IOException e ) {e.printStackTrace();}
+			}while(damier.getCase(o-1).getJoueur()!=(JoueurMorpion)joueurCourant || damier.getCase(d-1).getJoueur()!=null);
+			((JoueurMorpion)joueurCourant).jouer(damier.getCase(o-1),damier.getCase(d-1));
 			changerJoueurCourant();
+			// !!! AFFICHAGE EN CONSOLE A SUPPRIMER PLUS TARD !!!
+			System.out.println(damier);
+			//!!!
 		}
-	}
-	
-	public boolean fini(){
-		return false;
 	}
 	
 	public void changerJoueurCourant(){
