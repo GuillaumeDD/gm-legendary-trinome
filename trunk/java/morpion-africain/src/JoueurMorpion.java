@@ -55,7 +55,7 @@ public class JoueurMorpion extends Joueur{
 	
 	public boolean estUneCaseOccupee(CaseMorpion c){
 		boolean res=true;
-		if(casesOccupees.indexOf(c)==-1){
+		if(casesOccupees.contains(c)){
 			res=false;
 		}
 		return res;
