@@ -120,9 +120,4 @@ public class damierMorpion {
 		}				
 		return affichage.toString();
 	}
-	
-	public boolean fini(){
-		boolean res=false;
-		if
-	}
 }
