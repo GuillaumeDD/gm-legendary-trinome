@@ -22,7 +22,7 @@ public class CaseMorpion extends Case{
 	
 	public boolean estAdjacent(CaseMorpion c){
 		boolean res=true;
-		if(adjacents.indexOf(c)==-1){
+		if(adjacents.contains(c)){
 			res=false;
 		}
 		return res;
