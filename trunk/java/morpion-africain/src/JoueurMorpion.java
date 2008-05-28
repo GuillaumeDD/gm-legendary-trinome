@@ -61,7 +61,7 @@ public class JoueurMorpion extends Joueur{
 		return res;
 	}
 	
-	public int getCaseOccupee(int id){
+	public int getCasesOccupees(int id){
 		return casesOccupees.get(id).getId(); 
 	}
 }
