@@ -69,53 +69,72 @@ public class Morpion extends Jeu{
 			System.out.println(damier);
 			//!!!
 		}
+		changerJoueurCourant();
+		System.out.println("Victoire !!");
 	}
 	
 	public boolean fini(){
 		boolean res=false;
 		
-		List<Integer> solution1 = new ArrayList<Integer>();
-		List<Integer> solution2 = new ArrayList<Integer>();
-		List<Integer> solution3 = new ArrayList<Integer>();
-		List<Integer> solution4 = new ArrayList<Integer>();
-		List<Integer> solution5 = new ArrayList<Integer>();
-		List<Integer> solution6 = new ArrayList<Integer>();
-		List<Integer> solution7 = new ArrayList<Integer>();
-		List<Integer> solution8 = new ArrayList<Integer>();
+		ArrayList<ArrayList<Integer>> solutions = new ArrayList<ArrayList<Integer>>();
 		
 		List<Integer> casesJoueur0 = new ArrayList<Integer>();
 		List<Integer> casesJoueur1 = new ArrayList<Integer>();
 		
-		solution1.add(0);
-		solution1.add(1);
-		solution1.add(2);
-		solution2.add(3);
-		solution2.add(4);
-		solution2.add(5);
-		solution3.add(6);
-		solution3.add(7);
-		solution3.add(8);
-		solution4.add(0);
-		solution4.add(3);
-		solution4.add(6);
-		solution5.add(1);
-		solution5.add(4);
-		solution5.add(7);
-		solution6.add(2);
-		solution6.add(5);
-		solution6.add(8);
-		solution7.add(0);
-		solution7.add(4);
-		solution7.add(8);
-		solution8.add(2);
-		solution8.add(4);
-		solution8.add(6);
-		
-		casesJoueur0.add((JoueurMorpion)joueurs[0]).getCasesOccupees(0));
+		solutions.add(new ArrayList<Integer>());
+		solutions.get(0).add(0);
+		solutions.get(0).add(1);
+		solutions.get(0).add(2);
+		solutions.add(new ArrayList<Integer>());
+		solutions.get(1).add(3);
+		solutions.get(1).add(4);
+		solutions.get(1).add(5);
+		solutions.add(new ArrayList<Integer>());
+		solutions.get(2).add(6);
+		solutions.get(2).add(7);
+		solutions.get(2).add(8);
+		solutions.add(new ArrayList<Integer>());
+		solutions.get(3).add(0);
+		solutions.get(3).add(3);
+		solutions.get(3).add(6);
+		solutions.add(new ArrayList<Integer>());
+		solutions.get(4).add(1);
+		solutions.get(4).add(4);
+		solutions.get(4).add(7);
+		solutions.add(new ArrayList<Integer>());
+		solutions.get(5).add(2);
+		solutions.get(5).add(5);
+		solutions.get(5).add(8);
+		solutions.add(new ArrayList<Integer>());
+		solutions.get(6).add(0);
+		solutions.get(6).add(4);
+		solutions.get(6).add(8);
+		solutions.add(new ArrayList<Integer>());
+		solutions.get(7).add(2);
+		solutions.get(7).add(4);
+		solutions.get(7).add(6);
+	    		
+		casesJoueur0.add(((JoueurMorpion)joueurs[0]).getCasesOccupees(0));
+		casesJoueur0.add(((JoueurMorpion)joueurs[0]).getCasesOccupees(1));
+		casesJoueur0.add(((JoueurMorpion)joueurs[0]).getCasesOccupees(2));
+		casesJoueur1.add(((JoueurMorpion)joueurs[1]).getCasesOccupees(0));
+		casesJoueur1.add(((JoueurMorpion)joueurs[1]).getCasesOccupees(1));
+		casesJoueur1.add(((JoueurMorpion)joueurs[1]).getCasesOccupees(2));
 		
 		for(int i=0;i<7;i++){
-			
-			if(damier.getCase(gagne[i][1]).getJoueur()==damier.getCase(gagne[i][2]).getJoueur() && damier.getCase(gagne[i][1]).getJoueur()==damier.getCase(gagne[i][3]).getJoueur()){
+			if(
+				(
+				     casesJoueur0.contains(solutions.get(i).get(0)) 
+				  && casesJoueur0.contains(solutions.get(i).get(1)) 
+				  && casesJoueur0.contains(solutions.get(i).get(2))
+				)
+				||  
+				(
+					 casesJoueur1.contains(solutions.get(i).get(0)) 
+				  && casesJoueur1.contains(solutions.get(i).get(1)) 
+				  && casesJoueur1.contains(solutions.get(i).get(2))
+				 )
+			  ){
 				res=true;
 			}
 		}
