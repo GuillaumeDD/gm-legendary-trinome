@@ -70,7 +70,7 @@ public class Morpion extends Jeu{
 			//!!!
 		}
 		changerJoueurCourant();
-		System.out.println("Victoire !!");
+		System.out.println("Victoire du Joueur : "+ (joueurCourant.getId()+1));
 	}
 	
 	public boolean fini(){
