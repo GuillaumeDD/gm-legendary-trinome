@@ -27,7 +27,7 @@ public class Case {
 		joueur=j;
 	}
 	
-	public boolean estLibre(){
+	public boolean getLibre(){
 		return libre;
 	}
 	

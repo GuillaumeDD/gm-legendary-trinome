@@ -38,11 +38,19 @@ public class Morpion extends Jeu{
 		for(i=0;i<6;i++){
 			do{
 				try {
+
+					System.out.println("Entrer la case : ");
 					c=Integer.parseInt(entree.readLine());
+					
 				} catch( IOException e ) {e.printStackTrace();}
-			}while(!damier.getCase(c-1).estLibre());
-			((JoueurMorpion)joueurCourant).initialiser(damier.getCase(c-1));
-			changerJoueurCourant();
+			}while(!damier.getCase(c-1).getLibre());
+			
+			try{
+				((JoueurMorpion)joueurCourant).initialiser(damier.getCase(c-1));
+				changerJoueurCourant();
+			}catch(CaseInvalideException e){
+				System.out.println("Case occupée ou inexistante !");
+			}
 
 
 		}
@@ -72,9 +80,13 @@ public class Morpion extends Jeu{
 					d=Integer.parseInt(entree.readLine());
 				} catch( IOException e ) {e.printStackTrace();}
 			}while(damier.getCase(o-1).getJoueur()!=(JoueurMorpion)joueurCourant || damier.getCase(d-1).getJoueur()!=null);
-			((JoueurMorpion)joueurCourant).jouer(damier.getCase(o-1),damier.getCase(d-1));
-			changerJoueurCourant();
-			// !!! AFFICHAGE EN CONSOLE A SUPPRIMER PLUS TARD !!!
+			try{
+				((JoueurMorpion)joueurCourant).jouer(damier.getCase(o-1),damier.getCase(d-1));
+				changerJoueurCourant();
+			}catch( CaseInvalideException e){
+				System.out.println("La case est invalide, boulet !");
+			}
+				// !!! AFFICHAGE EN CONSOLE A SUPPRIMER PLUS TARD !!!
 			System.out.println(damier);
 			//!!!
 		}

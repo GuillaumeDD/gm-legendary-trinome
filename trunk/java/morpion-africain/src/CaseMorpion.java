@@ -29,7 +29,7 @@ public class CaseMorpion extends Case{
 	
 	public String toString(){
 		StringBuffer affichage=new StringBuffer();
-		if(this.estLibre()){
+		if(this.getLibre()){
 			affichage.append(" ");
 		}else if(this.getJoueur().getId()==0){
 			affichage.append("x");
