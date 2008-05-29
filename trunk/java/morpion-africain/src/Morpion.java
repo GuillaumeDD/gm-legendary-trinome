@@ -36,9 +36,11 @@ public class Morpion extends Jeu{
 
 		int c=0;	
 		for(i=0;i<6;i++){
-			try {
-		        c=Integer.parseInt(entree.readLine());
-			} catch( IOException e ) {e.printStackTrace();}
+			do{
+				try {
+					c=Integer.parseInt(entree.readLine());
+				} catch( IOException e ) {e.printStackTrace();}
+			}while(!damier.getCase(c-1).estLibre());
 			((JoueurMorpion)joueurCourant).initialiser(damier.getCase(c-1));
 			changerJoueurCourant();
 
@@ -51,8 +53,9 @@ public class Morpion extends Jeu{
 	
 	public void reinitialiser(){
 		damier.reinitialiser();
-		joueurs[0].reinitialiser();
-		joueurs[1].reinitialiser();
+		((JoueurMorpion)joueurs[0]).reinitialiser();
+		((JoueurMorpion)joueurs[1]).reinitialiser();
+		changerJoueurCourant();
 	}
 	
 	public void jouer(){

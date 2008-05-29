@@ -1,5 +1,4 @@
 import java.util.*;
-import java.lang.*;
 public class CaseMorpion extends Case{
 	/*
 	 * Les listes en java :
@@ -29,7 +28,6 @@ public class CaseMorpion extends Case{
 	}
 	
 	public String toString(){
-		int i;
 		StringBuffer affichage=new StringBuffer();
 		if(this.estLibre()){
 			affichage.append(" ");
@@ -38,14 +36,6 @@ public class CaseMorpion extends Case{
 		}else if(this.getJoueur().getId()==1){
 			affichage.append("o");
 		}
-		/*
-		StringBuffer res=new StringBuffer("Id de la case : "+String.valueOf(id)+"\n");
-		res.append("Cases adjacentes : ");
-		for(i=0;i<adjacents.size();i++){
-			res.append(adjacents.get(i).getId());
-			res.append("\n");
-		}
-		*/
 		return affichage.toString();
 	}
 	

@@ -47,7 +47,7 @@ public class JoueurMorpion extends Joueur{
 	}
 	
 	public void reinitialiser(){
-		 
+		casesOccupees.clear();
 	}
 	
 	public void jouer(CaseMorpion origine,CaseMorpion destination){
