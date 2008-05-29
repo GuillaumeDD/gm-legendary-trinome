@@ -120,4 +120,11 @@ public class damierMorpion {
 		}				
 		return affichage.toString();
 	}
+	
+	public void reinitialiser(){
+		for(int i=0;i<9;i++){
+			cases[i].setJoueur(null);
+			cases[i].setLibre(true,null);
+		}
+	}
 }

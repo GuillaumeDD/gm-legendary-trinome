@@ -49,6 +49,12 @@ public class Morpion extends Jeu{
 		//!!!
 	}
 	
+	public void reinitialiser(){
+		damier.reinitialiser();
+		joueurs[0].reinitialiser();
+		joueurs[1].reinitialiser();
+	}
+	
 	public void jouer(){
 		BufferedReader entree = new BufferedReader(new InputStreamReader(System.in));
 		int o,d;
@@ -70,7 +76,9 @@ public class Morpion extends Jeu{
 			//!!!
 		}
 		changerJoueurCourant();
+		((JoueurMorpion)joueurCourant).setScore(((JoueurMorpion)joueurCourant).getScore()+1);
 		System.out.println("Victoire du Joueur : "+ (joueurCourant.getId()+1));
+		System.out.println("Scores : J1 - "+((JoueurMorpion)joueurs[0]).getScore()+" J2 - "+((JoueurMorpion)(joueurs[1].getJoueurSuivant())).getScore());
 	}
 	
 	public boolean fini(){
@@ -121,7 +129,8 @@ public class Morpion extends Jeu{
 		casesJoueur1.add(((JoueurMorpion)joueurs[1]).getCasesOccupees(1));
 		casesJoueur1.add(((JoueurMorpion)joueurs[1]).getCasesOccupees(2));
 		
-		for(int i=0;i<7;i++){
+		int i=0;
+		do{
 			if(
 				(
 				     casesJoueur0.contains(solutions.get(i).get(0)) 
@@ -137,7 +146,8 @@ public class Morpion extends Jeu{
 			  ){
 				res=true;
 			}
-		}
+			i++;
+		}while(!res && i<8);
 		
 		return res;
 	}
