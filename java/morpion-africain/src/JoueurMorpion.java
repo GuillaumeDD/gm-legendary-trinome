@@ -1,15 +1,18 @@
-import java.util.ArrayList;
+	import java.util.ArrayList;
 import java.util.List;
 
 
 public class JoueurMorpion extends Joueur{
 	
 	private List<CaseMorpion> casesOccupees = new ArrayList<CaseMorpion>();
+	private int score;
 	
 	public JoueurMorpion(){
+		score=0;
 	}
 	
 	public JoueurMorpion(StringBuffer n){
+		score=0;
 		setNom(n);
 	}
 	
@@ -29,11 +32,22 @@ public class JoueurMorpion extends Joueur{
 		return joueurSuivant;
 	}
 	
+	public void setScore(int s){
+		score=s;
+	}
+	
+	public int getScore(){
+		return score;
+	}
+	
 	public void initialiser(CaseMorpion c){
 /* Test pour savoir si la case est bien libre ? */		
 		c.setLibre(false,this);
-		c.setJoueur(this);
 		ajouterCaseOccupee(c);
+	}
+	
+	public void reinitialiser(){
+		 
 	}
 	
 	public void jouer(CaseMorpion origine,CaseMorpion destination){
