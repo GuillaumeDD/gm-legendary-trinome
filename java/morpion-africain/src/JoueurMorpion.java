@@ -40,17 +40,22 @@ public class JoueurMorpion extends Joueur{
 		return score;
 	}
 	
-	public void initialiser(CaseMorpion c){
+	public void initialiser(CaseMorpion c) throws CaseInvalideException{
 /* Test pour savoir si la case est bien libre ? */		
-		c.setLibre(false,this);
-		ajouterCaseOccupee(c);
+		if(c.getLibre()){
+			c.setLibre(false,this);
+			ajouterCaseOccupee(c);
+		}else{
+			throw new CaseInvalideException();
+		}
+		
 	}
 	
 	public void reinitialiser(){
 		casesOccupees.clear();
 	}
 	
-	public void jouer(CaseMorpion origine,CaseMorpion destination){
+	public void jouer(CaseMorpion origine,CaseMorpion destination) throws CaseInvalideException{
 /* Tests pour savoir si la case destination est libre 
  * et si la case origine est  bien au joueur*/
 		origine.setLibre(true,null);
