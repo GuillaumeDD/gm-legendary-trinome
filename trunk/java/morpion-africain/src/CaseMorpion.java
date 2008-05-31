@@ -21,7 +21,7 @@ public class CaseMorpion extends Case{
 	
 	public boolean estAdjacent(CaseMorpion c){
 		boolean res=true;
-		if(adjacents.contains(c)){
+		if(!adjacents.contains(c)){
 			res=false;
 		}
 		return res;

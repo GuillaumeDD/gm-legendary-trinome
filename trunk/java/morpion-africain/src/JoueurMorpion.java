@@ -58,10 +58,14 @@ public class JoueurMorpion extends Joueur{
 	public void jouer(CaseMorpion origine,CaseMorpion destination) throws CaseInvalideException{
 /* Tests pour savoir si la case destination est libre 
  * et si la case origine est  bien au joueur*/
-		origine.setLibre(true,null);
-		destination.setLibre(false,this);
-		supprimerCaseOccupee(origine);
-		ajouterCaseOccupee(destination);
+		if(estUneCaseOccupee(origine) && destination.getLibre()){
+			origine.setLibre(true,null);
+			destination.setLibre(false,this);
+			supprimerCaseOccupee(origine);
+			ajouterCaseOccupee(destination);
+		}else{
+			throw new CaseInvalideException();			
+		}
 	}
 	
 	public void ajouterCaseOccupee(CaseMorpion c){
@@ -74,7 +78,7 @@ public class JoueurMorpion extends Joueur{
 	
 	public boolean estUneCaseOccupee(CaseMorpion c){
 		boolean res=true;
-		if(casesOccupees.contains(c)){
+		if(!casesOccupees.contains(c)){
 			res=false;
 		}
 		return res;
@@ -82,5 +86,12 @@ public class JoueurMorpion extends Joueur{
 	
 	public int getCasesOccupees(int id){
 		return casesOccupees.get(id).getId(); 
+	}
+	
+	public String toString(){
+		StringBuffer res=new StringBuffer();
+		res.append("Joueur ");
+		res.append(id+1);
+		return res.toString();
 	}
 }
