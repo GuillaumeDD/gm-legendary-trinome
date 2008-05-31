@@ -30,15 +30,15 @@ public class Morpion extends Jeu{
 	}
 
 	public void initialiser(){
-		int i;
+		int i=0;
 		BufferedReader entree = new BufferedReader(new InputStreamReader(System.in));
 
-
+		System.out.println("Phase d'initialisation");
 		int c=0;	
-		for(i=0;i<6;i++){
+		while(i<6){
 			do{
 				try {
-
+					System.out.println(joueurCourant);
 					System.out.println("Entrer la case : ");
 					c=Integer.parseInt(entree.readLine());
 					
@@ -48,6 +48,7 @@ public class Morpion extends Jeu{
 			try{
 				((JoueurMorpion)joueurCourant).initialiser(damier.getCase(c-1));
 				changerJoueurCourant();
+				i++;
 			}catch(CaseInvalideException e){
 				System.out.println("Case occupée ou inexistante !");
 			}
@@ -71,20 +72,21 @@ public class Morpion extends Jeu{
 		int o,d;
 		o=0;
 		d=0;
-		
+		System.out.println("Phase de jeu");
 		while(!fini()){
 			//Tant que les case selectionnées ne sont pas valide (ie : o est au joueur et d est libre) on rerentre les valeurs
 			do{
+				System.out.println(joueurCourant);
 				try {
 					o=Integer.parseInt(entree.readLine());
 					d=Integer.parseInt(entree.readLine());
 				} catch( IOException e ) {e.printStackTrace();}
-			}while(damier.getCase(o-1).getJoueur()!=(JoueurMorpion)joueurCourant || damier.getCase(d-1).getJoueur()!=null);
+			}while(damier.getCase(o-1).getJoueur()!=(JoueurMorpion)joueurCourant || damier.getCase(d-1).getLibre());
 			try{
 				((JoueurMorpion)joueurCourant).jouer(damier.getCase(o-1),damier.getCase(d-1));
 				changerJoueurCourant();
 			}catch( CaseInvalideException e){
-				System.out.println("La case est invalide, boulet !");
+				System.out.println("La case est invalide !");
 			}
 				// !!! AFFICHAGE EN CONSOLE A SUPPRIMER PLUS TARD !!!
 			System.out.println(damier);
