@@ -2,16 +2,16 @@
 import java.util.List;
 
 
-public class JoueurMorpion extends Joueur{
+public class JoueurMorpionAfricain extends Joueur{
 	
-	private List<CaseMorpion> casesOccupees = new ArrayList<CaseMorpion>();
+	private List<CaseMorpionAfricain> casesOccupees = new ArrayList<CaseMorpionAfricain>();
 	private int score;
 	
-	public JoueurMorpion(){
+	public JoueurMorpionAfricain(){
 		score=0;
 	}
 	
-	public JoueurMorpion(StringBuffer n){
+	public JoueurMorpionAfricain(StringBuffer n){
 		score=0;
 		setNom(n);
 	}
@@ -40,7 +40,7 @@ public class JoueurMorpion extends Joueur{
 		return score;
 	}
 	
-	public void initialiser(CaseMorpion c) throws CaseInvalideException{
+	public void initialiser(CaseMorpionAfricain c) throws CaseInvalideException{
 /* Test pour savoir si la case est bien libre ? */		
 		if(c.getLibre()){
 			c.setLibre(false,this);
@@ -55,7 +55,7 @@ public class JoueurMorpion extends Joueur{
 		casesOccupees.clear();
 	}
 	
-	public void jouer(CaseMorpion origine,CaseMorpion destination) throws CaseInvalideException{
+	public void jouer(CaseMorpionAfricain origine,CaseMorpionAfricain destination) throws CaseInvalideException{
 /* Tests pour savoir si la case destination est libre 
  * et si la case origine est  bien au joueur*/
 		if(estUneCaseOccupee(origine) && destination.getLibre()){
@@ -68,15 +68,15 @@ public class JoueurMorpion extends Joueur{
 		}
 	}
 	
-	public void ajouterCaseOccupee(CaseMorpion c){
+	public void ajouterCaseOccupee(CaseMorpionAfricain c){
 		casesOccupees.add(c);
 	}
 	
-	public void supprimerCaseOccupee(CaseMorpion c){
+	public void supprimerCaseOccupee(CaseMorpionAfricain c){
 		casesOccupees.remove(c);		
 	}
 	
-	public boolean estUneCaseOccupee(CaseMorpion c){
+	public boolean estUneCaseOccupee(CaseMorpionAfricain c){
 		boolean res=true;
 		if(!casesOccupees.contains(c)){
 			res=false;
