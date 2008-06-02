@@ -1,25 +1,25 @@
 import java.util.*;
-public class CaseMorpion extends Case{
+public class CaseMorpionAfricain extends Case{
 	/*
 	 * Les listes en java :
 	 * 		http://fmora.developpez.com/tutoriel/java/collections/introduction/#L3.2
 	 * 		http://java.sun.com/j2se/1.4.2/docs/api/java/util/ArrayList.html 
 	 */
-	List<CaseMorpion> adjacents = new ArrayList<CaseMorpion>();	
+	List<CaseMorpionAfricain> adjacents = new ArrayList<CaseMorpionAfricain>();	
 	
-	public CaseMorpion(){
+	public CaseMorpionAfricain(){
 		super();
 	}
 	
-	public CaseMorpion(int identifiant){
+	public CaseMorpionAfricain(int identifiant){
 		super(identifiant);
 	}
 	
-	public void ajouterAdjacent(CaseMorpion caseAdjacent){
+	public void ajouterAdjacent(CaseMorpionAfricain caseAdjacent){
 		adjacents.add(caseAdjacent);
 	}
 	
-	public boolean estAdjacent(CaseMorpion c){
+	public boolean estAdjacent(CaseMorpionAfricain c){
 		boolean res=true;
 		if(!adjacents.contains(c)){
 			res=false;
@@ -39,7 +39,7 @@ public class CaseMorpion extends Case{
 		return affichage.toString();
 	}
 	
-	public JoueurMorpion getJoueur(){
-		return (JoueurMorpion)joueur;
+	public JoueurMorpionAfricain getJoueur(){
+		return (JoueurMorpionAfricain)joueur;
 	}
 }

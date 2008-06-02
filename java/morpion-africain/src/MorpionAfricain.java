@@ -1,34 +1,37 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-public class Morpion extends Jeu{
-	//private CaseMorpion cases[] = new CaseMorpion[9];
-	private damierMorpion damier;
-//on redefinit un joueurCourant de type JoueurMorpion car il doit pouvoir utiliser les méthodes initialiser() et jouer()
+public class MorpionAfricain extends Jeu{
+	DamierMorpionAfricain damier;
+//on redefinit un joueurCourant de type JoueurMorpionAfricain car il doit pouvoir utiliser les méthodes initialiser() et jouer()
 	private Joueur joueurCourant; 
 	
-	public Morpion(){
+	public MorpionAfricain(){
 		// on ajoute les deux joueurs
 		super(2);
-		joueurCourant=new JoueurMorpion();
-		joueurs[0]=new JoueurMorpion();
-		joueurs[1]=new JoueurMorpion();
+		joueurCourant=new JoueurMorpionAfricain();
+		joueurs[0]=new JoueurMorpionAfricain();
+		joueurs[1]=new JoueurMorpionAfricain();
 		
-		joueurs[0].setId(0);
+                initialiserJoueur();
+		
+		damier=new DamierMorpionAfricain();
+		
+	}
+        
+        public void initialiserJoueur(){
+      		joueurs[0].setId(0);
 		joueurs[1].setId(1);
 		
 		joueurs[0].setJoueurPrecedent(joueurs[1]);
 		joueurs[0].setJoueurSuivant(joueurs[1]);
 		joueurs[1].setJoueurPrecedent(joueurs[0]);
 		joueurs[1].setJoueurSuivant(joueurs[0]);
-		
-		// On determine le premier joueur
+                
+                // On determine le premier joueur
 		joueurCourant=joueurs[0];
-		
-		damier=new damierMorpion();
-		
-	}
-
+        }
+        
 	public void initialiser(){
 		int i=0;
 		BufferedReader entree = new BufferedReader(new InputStreamReader(System.in));
@@ -46,7 +49,7 @@ public class Morpion extends Jeu{
 			}while(!damier.getCase(c-1).getLibre());
 			
 			try{
-				((JoueurMorpion)joueurCourant).initialiser(damier.getCase(c-1));
+				((JoueurMorpionAfricain)joueurCourant).initialiser(damier.getCase(c-1));
 				changerJoueurCourant();
 				i++;
 			}catch(CaseInvalideException e){
@@ -62,8 +65,8 @@ public class Morpion extends Jeu{
 	
 	public void reinitialiser(){
 		damier.reinitialiser();
-		((JoueurMorpion)joueurs[0]).reinitialiser();
-		((JoueurMorpion)joueurs[1]).reinitialiser();
+		((JoueurMorpionAfricain)joueurs[0]).reinitialiser();
+		((JoueurMorpionAfricain)joueurs[1]).reinitialiser();
 		changerJoueurCourant();
 	}
 	
@@ -81,9 +84,9 @@ public class Morpion extends Jeu{
 					o=Integer.parseInt(entree.readLine());
 					d=Integer.parseInt(entree.readLine());
 				} catch( IOException e ) {e.printStackTrace();}
-			}while(damier.getCase(o-1).getJoueur()!=(JoueurMorpion)joueurCourant || damier.getCase(d-1).getLibre());
+			}while(damier.getCase(o-1).getJoueur()!=(JoueurMorpionAfricain)joueurCourant || damier.getCase(d-1).getLibre());
 			try{
-				((JoueurMorpion)joueurCourant).jouer(damier.getCase(o-1),damier.getCase(d-1));
+				((JoueurMorpionAfricain)joueurCourant).jouer(damier.getCase(o-1),damier.getCase(d-1));
 				changerJoueurCourant();
 			}catch( CaseInvalideException e){
 				System.out.println("La case est invalide !");
@@ -93,9 +96,9 @@ public class Morpion extends Jeu{
 			//!!!
 		}
 		changerJoueurCourant();
-		((JoueurMorpion)joueurCourant).setScore(((JoueurMorpion)joueurCourant).getScore()+1);
+		((JoueurMorpionAfricain)joueurCourant).setScore(((JoueurMorpionAfricain)joueurCourant).getScore()+1);
 		System.out.println("Victoire du Joueur : "+ (joueurCourant.getId()+1));
-		System.out.println("Scores : J1 - "+((JoueurMorpion)joueurs[0]).getScore()+" J2 - "+((JoueurMorpion)(joueurs[1].getJoueurSuivant())).getScore());
+		System.out.println("Scores : J1 - "+((JoueurMorpionAfricain)joueurs[0]).getScore()+" J2 - "+((JoueurMorpionAfricain)(joueurs[1].getJoueurSuivant())).getScore());
 	}
 	
 	public boolean fini(){
@@ -139,12 +142,12 @@ public class Morpion extends Jeu{
 		solutions.get(7).add(4);
 		solutions.get(7).add(6);
 	    		
-		casesJoueur0.add(((JoueurMorpion)joueurs[0]).getCasesOccupees(0));
-		casesJoueur0.add(((JoueurMorpion)joueurs[0]).getCasesOccupees(1));
-		casesJoueur0.add(((JoueurMorpion)joueurs[0]).getCasesOccupees(2));
-		casesJoueur1.add(((JoueurMorpion)joueurs[1]).getCasesOccupees(0));
-		casesJoueur1.add(((JoueurMorpion)joueurs[1]).getCasesOccupees(1));
-		casesJoueur1.add(((JoueurMorpion)joueurs[1]).getCasesOccupees(2));
+		casesJoueur0.add(((JoueurMorpionAfricain)joueurs[0]).getCasesOccupees(0));
+		casesJoueur0.add(((JoueurMorpionAfricain)joueurs[0]).getCasesOccupees(1));
+		casesJoueur0.add(((JoueurMorpionAfricain)joueurs[0]).getCasesOccupees(2));
+		casesJoueur1.add(((JoueurMorpionAfricain)joueurs[1]).getCasesOccupees(0));
+		casesJoueur1.add(((JoueurMorpionAfricain)joueurs[1]).getCasesOccupees(1));
+		casesJoueur1.add(((JoueurMorpionAfricain)joueurs[1]).getCasesOccupees(2));
 		
 		int i=0;
 		do{
@@ -173,7 +176,7 @@ public class Morpion extends Jeu{
 		joueurCourant=joueurCourant.getJoueurSuivant();
 	}
 
-	public JoueurMorpion getJoueur(int id){
-		return (JoueurMorpion)joueurs[id];
+	public JoueurMorpionAfricain getJoueur(int id){
+		return (JoueurMorpionAfricain)joueurs[id];
 	}
 }
