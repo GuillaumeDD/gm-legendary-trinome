@@ -11,7 +11,7 @@ public class Case {
 	}
 	
 	public Case(int identifiant){
-                joueur=null;
+        joueur=null;
 		libre=true;
 		id=identifiant;
 	}

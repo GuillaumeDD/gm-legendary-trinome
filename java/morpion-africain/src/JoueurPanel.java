@@ -9,10 +9,12 @@
  */
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.border.*;
 public class JoueurPanel extends JPanel{
     private GridBagLayout magrille=new GridBagLayout();
     private GridBagConstraints contraintes=new GridBagConstraints();
+    private JoueurMorpionAfricainGraphique joueur;
     JLabel titre;
     JLabel nom=new JLabel("Nom");
     JTextField champNom;
@@ -20,6 +22,7 @@ public class JoueurPanel extends JPanel{
     JLabel scoreEntier=new JLabel("0");
     public JoueurPanel(Color c,String chaine){
         
+    	joueur=null;
         titre=new JLabel(chaine);
         champNom=new JTextField(chaine);
         
@@ -48,6 +51,14 @@ public class JoueurPanel extends JPanel{
         magrille.setConstraints(scoreEntier, contraintes);        
         
         this.setLayout(magrille);
+        
+        champNom.addActionListener(new ActionListener(){
+        	public void actionPerformed(ActionEvent e){
+        		titre.setText(champNom.getText());
+        		champNom.setVisible(false);
+        		nom.setVisible(false);
+        	}
+        });
     }
     
     public void addConstraints(int gridx,int gridy, int gridwith,int gridheight,double weightx,double weighty, int fill, int anchor){
@@ -59,5 +70,18 @@ public class JoueurPanel extends JPanel{
         contraintes.weighty=weighty;
         contraintes.fill=fill;
         contraintes.anchor=anchor;
-    }  
+    }
+    
+    public void setScore(int score){
+    	scoreEntier.setText(String.valueOf(score));
+    }
+    
+    public void setJoueur(JoueurMorpionAfricainGraphique j){
+    	joueur=j;
+    }
+    
+    public void setNom(String nom){
+    	StringBuffer n = new StringBuffer(nom);
+    	joueur.setNom(n);
+    }
 }
