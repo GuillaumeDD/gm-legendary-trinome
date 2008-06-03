@@ -32,20 +32,28 @@ public class CaseMorpionAfricainGraphique extends CaseMorpionAfricain{
         
         boutonGraphique.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent e){
+        		
         		if(morpion.getTour()<6){
         			morpion.initialiser(getId());
         		}else{ 
         			if(!morpion.aChoisiLePion()){
-        				if(morpion.getJoueurCourant().estUneCaseOccupee(getThisCase())){
-        					morpion.tamponNumCase=getId();
-        					morpion.setaChoisiLePion(true);
-        				}else{
-        					morpion.setaChoisiLePion(false);
-        				}
-        			}
-        			else{
-        				morpion.jouer(morpion.tamponNumCase,getId());
-        			}
+        				//si le joueur n'a pas choisi de pion
+	        			if(morpion.getJoueurCourant().estUneCaseOccupee(getThisCase())){
+	        				//si cette case contient un pion du joueur
+	        				morpion.tamponNumCase=getId();
+	        				morpion.setaChoisiLePion(true);//alors il a choisi son pion
+	        			}else{
+	        				//dans le cas contraire il n'a pas choisi son pion
+	        				morpion.setaChoisiLePion(false);
+	        			}
+	        		}else{
+	        			//si le joueur a choisi son pion, on joue
+	        			morpion.jouer(morpion.tamponNumCase,getId());
+	        			// on met le choix du pion à false dans le cas où le pion est "bloqué"
+	        			morpion.setaChoisiLePion(false);
+	        			//il n'y aura pas d'appel à changerJoueurCourant qui remettra à false
+	        		}
+        			System.out.println("aChoisiLePion : "+morpion.aChoisiLePion());
         		}
         	}
         });

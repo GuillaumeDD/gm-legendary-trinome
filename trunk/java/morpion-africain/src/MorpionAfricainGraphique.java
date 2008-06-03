@@ -42,20 +42,21 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
     
     public void jouer(int o, int d){
 		if(fini()){
+			System.out.println("Jeu terminé !");
 			changerJoueurCourant();
 			getJoueurCourant().addScore();
 			fenetre.setTextInfos("Victoire de : "+ joueurCourant);
+		}else{
+			try{
+				getJoueurCourant().jouer(damier.getCase(o),damier.getCase(d));
+				getDamier().getCase(o).setColor(-1);
+				getDamier().getCase(d).setColor(joueurCourant.getId());	
+				changerJoueurCourant();
+				fenetre.setTextInfos("A "+joueurCourant+" de jouer");
+			}catch( CaseInvalideException e){
+				fenetre.setTextInfos("Mauvaise case. "+joueurCourant+" rejoue !");
+			}
 		}
-		try{
-			getJoueurCourant().jouer(damier.getCase(o),damier.getCase(d));
-			getDamier().getCase(o).setColor(-1);
-			getDamier().getCase(d).setColor(joueurCourant.getId());	
-			changerJoueurCourant();
-			fenetre.setTextInfos("A "+joueurCourant+" de jouer");
-		}catch( CaseInvalideException e){
-			fenetre.setTextInfos("Mauvaise case. "+joueurCourant+" rejoue !");
-		}
-		
     }
 	
 	public int getTour(){
