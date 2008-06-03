@@ -29,35 +29,35 @@ public class DamierMorpionAfricainGraphique extends DamierMorpionAfricain{
             terrainDeJeu.add(((CaseMorpionAfricainGraphique)cases[i]).getButton());
         }
         
-        addConstraints(0,0,1,1,0.333333333,0.333333333,0,0,GridBagConstraints.BOTH,GridBagConstraints.CENTER);
+        addConstraints(0,0,1,1,0.333333333,0.333333333,0,0,GridBagConstraints.NONE,GridBagConstraints.CENTER);
         magrille.setConstraints(((CaseMorpionAfricainGraphique)cases[0]).getButton(),contraintes);
         
-        addConstraints(1,0,1,1,0.333333333,0.333333333,0,0,GridBagConstraints.BOTH,GridBagConstraints.CENTER);
+        addConstraints(1,0,1,1,0.333333333,0.333333333,0,0,GridBagConstraints.NONE,GridBagConstraints.CENTER);
         magrille.setConstraints(((CaseMorpionAfricainGraphique)cases[1]).getButton(),contraintes); 
 
-        addConstraints(2,0,1,1,0.333333333,0.333333333,0,0,GridBagConstraints.BOTH,GridBagConstraints.CENTER);
+        addConstraints(2,0,1,1,0.333333333,0.333333333,0,0,GridBagConstraints.NONE,GridBagConstraints.CENTER);
         magrille.setConstraints(((CaseMorpionAfricainGraphique)cases[2]).getButton(),contraintes);        
 
-        addConstraints(0,1,1,1,0.333333333,0.333333333,0,0,GridBagConstraints.BOTH,GridBagConstraints.CENTER);
+        addConstraints(0,1,1,1,0.333333333,0.333333333,0,0,GridBagConstraints.NONE,GridBagConstraints.CENTER);
         magrille.setConstraints(((CaseMorpionAfricainGraphique)cases[3]).getButton(),contraintes);
         
-        addConstraints(1,1,1,1,0.333333333,0.333333333,0,0,GridBagConstraints.BOTH,GridBagConstraints.CENTER);
+        addConstraints(1,1,1,1,0.333333333,0.333333333,0,0,GridBagConstraints.NONE,GridBagConstraints.CENTER);
         magrille.setConstraints(((CaseMorpionAfricainGraphique)cases[4]).getButton(),contraintes); 
 
-        addConstraints(2,1,1,1,0.333333333,0.333333333,0,0,GridBagConstraints.BOTH,GridBagConstraints.CENTER);
+        addConstraints(2,1,1,1,0.333333333,0.333333333,0,0,GridBagConstraints.NONE,GridBagConstraints.CENTER);
         magrille.setConstraints(((CaseMorpionAfricainGraphique)cases[5]).getButton(),contraintes);        
 
-        addConstraints(0,2,1,1,0.333333333,0.333333333,0,0,GridBagConstraints.BOTH,GridBagConstraints.CENTER);
+        addConstraints(0,2,1,1,0.333333333,0.333333333,0,0,GridBagConstraints.NONE,GridBagConstraints.CENTER);
         magrille.setConstraints(((CaseMorpionAfricainGraphique)cases[6]).getButton(),contraintes);
         
-        addConstraints(1,2,1,1,0.333333333,0.333333333,0,0,GridBagConstraints.BOTH,GridBagConstraints.CENTER);
+        addConstraints(1,2,1,1,0.333333333,0.333333333,0,0,GridBagConstraints.NONE,GridBagConstraints.CENTER);
         magrille.setConstraints(((CaseMorpionAfricainGraphique)cases[7]).getButton(),contraintes); 
 
-        addConstraints(2,2,1,1,0.333333333,0.333333333,0,0,GridBagConstraints.BOTH,GridBagConstraints.CENTER);
+        addConstraints(2,2,1,1,0.333333333,0.333333333,0,0,GridBagConstraints.NONE,GridBagConstraints.CENTER);
         magrille.setConstraints(((CaseMorpionAfricainGraphique)cases[8]).getButton(),contraintes); 
         
         terrainDeJeu.setLayout(magrille);
-        terrainDeJeu.setBackground(Color.YELLOW);
+        terrainDeJeu.setPreferredSize(new Dimension(150,150));
         terrainDeJeu.setVisible(true);
     }
     

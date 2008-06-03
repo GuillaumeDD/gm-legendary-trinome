@@ -26,7 +26,7 @@ public class FenetreMorpionAfricain extends JFrame{
         super("Morpion africain");
         damier=d;
         joueurs=j;
-        this.setBounds(100,100,400,200);
+        this.setBounds(100,100,450,300);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         
