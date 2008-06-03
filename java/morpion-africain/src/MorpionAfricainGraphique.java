@@ -18,7 +18,7 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
 	private int tour=0;
 	int tamponNumCase=-1;
     boolean aChoisiLePion=false;
-
+    boolean partieEnCours=true;
     
     public MorpionAfricainGraphique(){
         super();
@@ -37,16 +37,13 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
 			getDamier().getCase(numCase).setColor(joueurCourant.getId());
 			changerJoueurCourant();
 			fenetre.setTextInfos("A "+joueurCourant+" de jouer");
+			verifierEtatDeLaPartie();
 		}catch(CaseInvalideException e){fenetre.setTextInfos("Mauvaise case. "+joueurCourant+" rejoue !");}
     }
     
     public void jouer(int o, int d){
-		if(fini()){
-			System.out.println("Jeu terminé !");
-			changerJoueurCourant();
-			getJoueurCourant().addScore();
-			fenetre.setTextInfos("Victoire de : "+ joueurCourant);
-		}else{
+    	if(partieEnCours){
+
 			try{
 				getJoueurCourant().jouer(damier.getCase(o),damier.getCase(d));
 				getDamier().getCase(o).setColor(-1);
@@ -56,7 +53,8 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
 			}catch( CaseInvalideException e){
 				fenetre.setTextInfos("Mauvaise case. "+joueurCourant+" rejoue !");
 			}
-		}
+			verifierEtatDeLaPartie();
+    	}
     }
 	
 	public int getTour(){
@@ -87,5 +85,14 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
 	
 	public void setaChoisiLePion(boolean b){
 		aChoisiLePion=b;
+	}
+	
+	public void verifierEtatDeLaPartie(){
+		if(fini()){
+			changerJoueurCourant();
+			getJoueurCourant().addScore();
+			fenetre.setTextInfos("Victoire de : "+ joueurCourant);
+			partieEnCours=false;
+		}	
 	}
 }
