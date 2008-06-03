@@ -13,7 +13,7 @@ public class Personne {
 		return nom;
 	}
 	
-	public void setNom(StringBuffer nouveauNom){
+	public void modifierNom(StringBuffer nouveauNom){
 		nom=new StringBuffer(nouveauNom);
 	}
 }

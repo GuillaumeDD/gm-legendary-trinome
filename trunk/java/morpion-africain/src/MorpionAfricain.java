@@ -4,7 +4,7 @@ import java.util.List;
 public class MorpionAfricain extends Jeu{
 	DamierMorpionAfricain damier;
 //on redefinit un joueurCourant de type JoueurMorpionAfricain car il doit pouvoir utiliser les méthodes initialiser() et jouer()
-	private Joueur joueurCourant; 
+	Joueur joueurCourant; 
 	
 	public MorpionAfricain(){
 		// on ajoute les deux joueurs

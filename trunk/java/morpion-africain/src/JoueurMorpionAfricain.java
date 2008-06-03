@@ -13,7 +13,7 @@ public class JoueurMorpionAfricain extends Joueur{
 	
 	public JoueurMorpionAfricain(StringBuffer n){
 		score=0;
-		setNom(n);
+		modifierNom(n);
 	}
 	
 	public void setJoueurPrecedent(Joueur j){
