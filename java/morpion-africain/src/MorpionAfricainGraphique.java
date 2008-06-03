@@ -36,7 +36,7 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
 		while(i<6){
 			do{
 				fenetre.setTextInfos("A "+joueurCourant.getNom()+" de jouer");
-				c=Integer.parseInt(entree.readLine());
+				//c=Integer.parseInt(entree.readLine());
 			}while(!damier.getCase(c-1).getLibre());
 			
 			try{

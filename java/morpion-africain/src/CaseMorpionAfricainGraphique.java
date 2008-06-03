@@ -37,7 +37,7 @@ public class CaseMorpionAfricainGraphique extends CaseMorpionAfricain{
         		else {
         			
         		}
-        		morpion.setTour(morpion.getTour()+1);i
+        		morpion.setTour(morpion.getTour()+1);
         	}
         });
     }
