@@ -31,7 +31,6 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
     }
     
     public void initialiser(int numCase){
-    	tour++;
 		try{
 			getJoueurCourant().initialiser(damier.getCase(numCase));
 			//Changement de la couleur
@@ -42,7 +41,6 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
     }
     
     public void jouer(int o, int d){
-    	tour++;
 		if(fini()){
 			changerJoueurCourant();
 			getJoueurCourant().addScore();
@@ -50,11 +48,11 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
 		}
 		try{
 			getJoueurCourant().jouer(damier.getCase(o),damier.getCase(d));
-			changerJoueurCourant();
 			getDamier().getCase(o).setColor(-1);
 			getDamier().getCase(d).setColor(joueurCourant.getId());	
+			changerJoueurCourant();
 			fenetre.setTextInfos("A "+joueurCourant+" de jouer");
-		}catch( CaseInvalideException e){fenetre.setTextInfos("Mauvaise case. "+joueurCourant+" rejoue !");}
+		}catch( CaseInvalideException e){fenetre.setTextInfos("Mauvaise case. "+joueurCourant+" rejoue !");tour++;}
 		
     }
 	
