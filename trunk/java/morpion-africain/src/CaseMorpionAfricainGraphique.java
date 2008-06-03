@@ -8,6 +8,7 @@
  * @author Nyho
  */
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 public class CaseMorpionAfricainGraphique extends CaseMorpionAfricain{
@@ -25,10 +26,17 @@ public class CaseMorpionAfricainGraphique extends CaseMorpionAfricain{
         boutonGraphique.setMinimumSize(new Dimension(20,20));
         boutonGraphique.setPreferredSize(new Dimension(30,30));
         boutonGraphique.setVisible(true);
+        
+
+        
+        boutonGraphique.addActionListener(new ActionListener(){
+        	public void actionPerformed(ActionEvent e){
+        		
+        	}
+        });
     }
     
     public JButton getButton(){
         return boutonGraphique;
     }
-        
 }
