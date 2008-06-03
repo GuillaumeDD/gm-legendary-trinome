@@ -14,7 +14,7 @@ import javax.imageio.*;
 import java.awt.image.*;
 public class DamierMorpionAfricainGraphique extends DamierMorpionAfricain{
 	private MorpionAfricainGraphique morpion;
-    JPanel terrainDeJeu;
+    DrawingPanel terrainDeJeu;
     private GridBagLayout magrille=new GridBagLayout();
     private GridBagConstraints contraintes=new GridBagConstraints();
     
@@ -26,8 +26,8 @@ public class DamierMorpionAfricainGraphique extends DamierMorpionAfricain{
             cases[i].setLibre(true,null);
         }
         creerAdjacence();
-        
-        terrainDeJeu=new JPanel();
+        Image img = Toolkit.getDefaultToolkit().getImage("./src/grille-complete.png" );
+        terrainDeJeu=new DrawingPanel(img);
         
         
         for(int i=0;i<9;i++){
