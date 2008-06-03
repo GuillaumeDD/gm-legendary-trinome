@@ -5,6 +5,14 @@ public class Joueur extends Personne{
 	Joueur joueurSuivant;
 	int id;
 	
+	public Joueur(){
+	}
+	
+	public Joueur(int i){
+		super("Joueur "+(i+1));
+		id=i;
+	}
+	
 	public void setJoueurPrecedent(Joueur j){
 		joueurPrecedent=j;
 	}

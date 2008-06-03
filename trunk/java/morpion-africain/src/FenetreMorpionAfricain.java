@@ -14,10 +14,10 @@ public class FenetreMorpionAfricain extends JFrame{
     DamierMorpionAfricainGraphique damier;
     Joueur joueurs[];
     JLabel titre=new JLabel("Morpion africain");
-    JLabel infos=new JLabel("labeltest");
+    JLabel infos=new JLabel("Joueur 1 commence");
     JPanel conteneur=new JPanel();
-    JPanel j1=new JoueurPanel(new Color(255,255,0),"Joueur 1");
-    JPanel j2=new JoueurPanel(new Color(102,255,0),"Joueur 2");
+    JPanel j1;
+    JPanel j2;
     
     private GridBagLayout magrille=new GridBagLayout();
     private GridBagConstraints contraintes=new GridBagConstraints();
@@ -26,6 +26,8 @@ public class FenetreMorpionAfricain extends JFrame{
         super("Morpion africain");
         damier=d;
         joueurs=j;
+        j1=new JoueurPanel(new Color(255,255,0),(JoueurMorpionAfricainGraphique)j[0]);
+        j2=new JoueurPanel(new Color(102,255,0),(JoueurMorpionAfricainGraphique)j[1]);
         this.setBounds(100,100,450,300);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);

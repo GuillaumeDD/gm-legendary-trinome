@@ -1,19 +1,20 @@
 
 public class Personne {
-	private StringBuffer nom;
+	private String nom;
 	
 	public Personne(){
 	}
 	
-	public Personne(StringBuffer nomPersonne){
-	  nom=new StringBuffer(nomPersonne);			
+	public Personne(String n){
+	  nom = new String();
+	  nom=n;
 	}
 	
-	public StringBuffer getNom(){
+	public String getNom(){
 		return nom;
 	}
 	
-	public void modifierNom(StringBuffer nouveauNom){
-		nom=new StringBuffer(nouveauNom);
+	public void modifierNom(String n){
+		nom=n;
 	}
 }
