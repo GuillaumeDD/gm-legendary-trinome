@@ -13,14 +13,16 @@ import java.io.*;
 import javax.imageio.*;
 import java.awt.image.*;
 public class DamierMorpionAfricainGraphique extends DamierMorpionAfricain{
+	private MorpionAfricainGraphique morpion;
     JPanel terrainDeJeu;
     private GridBagLayout magrille=new GridBagLayout();
     private GridBagConstraints contraintes=new GridBagConstraints();
     
-    public DamierMorpionAfricainGraphique(){
+    public DamierMorpionAfricainGraphique(MorpionAfricainGraphique m){
+    	morpion=m;
         // on cree les cases
         for(int i=0;i<9;i++){
-            cases[i]=new CaseMorpionAfricainGraphique(i);
+            cases[i]=new CaseMorpionAfricainGraphique(i,morpion);
             cases[i].setLibre(true,null);
         }
         creerAdjacence();

@@ -70,5 +70,10 @@ public class FenetreMorpionAfricain extends JFrame{
         contraintes.weighty=weighty;
         contraintes.fill=fill;
         contraintes.anchor=anchor;
-    }  
+    } 
+    
+    public void setTextInfos(String t){
+    	infos.setText(t);
+    }
+    
 }
