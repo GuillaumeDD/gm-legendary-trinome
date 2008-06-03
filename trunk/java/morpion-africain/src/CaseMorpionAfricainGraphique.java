@@ -53,7 +53,6 @@ public class CaseMorpionAfricainGraphique extends CaseMorpionAfricain{
 	        			morpion.setaChoisiLePion(false);
 	        			//il n'y aura pas d'appel à changerJoueurCourant qui remettra à false
 	        		}
-        			System.out.println("aChoisiLePion : "+morpion.aChoisiLePion());
         		}
         	}
         });
@@ -66,8 +65,8 @@ public class CaseMorpionAfricainGraphique extends CaseMorpionAfricain{
 	public void setColor(int numJoueur){
 		switch(numJoueur){
 		case -1 : boutonGraphique.setBackground(Color.WHITE);break;
-		case  0 : boutonGraphique.setBackground(Color.BLUE);break;
-		case  1 : boutonGraphique.setBackground(Color.RED);break;
+		case  0 : boutonGraphique.setBackground(new Color(255,255,0));break;
+		case  1 : boutonGraphique.setBackground(new Color(102,255,0));break;
 		}   
 	}
 	
