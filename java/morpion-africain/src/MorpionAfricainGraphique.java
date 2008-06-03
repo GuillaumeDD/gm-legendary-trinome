@@ -17,7 +17,7 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
     FenetreMorpionAfricain fenetre;
 	private int tour=0;
 	int tamponNumCase=-1;
-    
+    boolean aChoisiLePion=false;
 
     
     public MorpionAfricainGraphique(){
