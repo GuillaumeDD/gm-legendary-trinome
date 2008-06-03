@@ -32,16 +32,21 @@ public class CaseMorpionAfricainGraphique extends CaseMorpionAfricain{
         
         boutonGraphique.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent e){
-        		if(morpion.getTour()<6)
+        		if(morpion.getTour()<6){
         			morpion.initialiser(getId());
-        		else 
-        			if(morpion.getTour()%2==0){
-        				morpion.tamponNumCase=getId();
-        				morpion.setTour(morpion.getTour()+1);
+        		}else{ 
+        			if(!morpion.aChoisiLePion()){
+        				if(morpion.getJoueurCourant().estUneCaseOccupee(getThisCase())){
+        					morpion.tamponNumCase=getId();
+        					morpion.setaChoisiLePion(true);
+        				}else{
+        					morpion.setaChoisiLePion(false);
+        				}
         			}
-        			else
+        			else{
         				morpion.jouer(morpion.tamponNumCase,getId());
-        		
+        			}
+        		}
         	}
         });
     }
@@ -56,5 +61,9 @@ public class CaseMorpionAfricainGraphique extends CaseMorpionAfricain{
 		case  0 : boutonGraphique.setBackground(Color.BLUE);break;
 		case  1 : boutonGraphique.setBackground(Color.RED);break;
 		}   
+	}
+	
+	public CaseMorpionAfricain getThisCase(){
+		return this;
 	}
 }

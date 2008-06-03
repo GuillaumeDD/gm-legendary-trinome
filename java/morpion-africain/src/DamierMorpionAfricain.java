@@ -49,38 +49,28 @@ public class DamierMorpionAfricain {
             casesId[2]=7;
             ajouterAdjacents(8,casesId);
             
-            casesId=new int[5];
-		
             // Case 1
             casesId[0]=0;
             casesId[1]=2;
-            casesId[2]=3;
-            casesId[3]=4;
-            casesId[4]=5;	
+            casesId[2]=4;
             ajouterAdjacents(1,casesId);
             
             // Case 3
             casesId[0]=0;
-            casesId[1]=1;
-            casesId[2]=4;
-            casesId[3]=7;
-            casesId[4]=6;	
+            casesId[1]=4;
+            casesId[2]=6;	
             ajouterAdjacents(3,casesId);
             
             // Case 5
-            casesId[0]=1;
-            casesId[1]=2;
-            casesId[2]=4;
-            casesId[3]=7;
-            casesId[4]=8;	
+            casesId[0]=2;
+            casesId[1]=4;
+            casesId[2]=8;	
             ajouterAdjacents(5,casesId);
             
             // Case 7
-            casesId[0]=3;
-            casesId[1]=4;
-            casesId[2]=5;
-            casesId[3]=6;
-            casesId[4]=8;	
+            casesId[0]=4;
+            casesId[1]=6;
+            casesId[2]=8;	
             ajouterAdjacents(7,casesId);
 		
             // Case 4
