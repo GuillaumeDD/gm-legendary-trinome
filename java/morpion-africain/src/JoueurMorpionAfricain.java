@@ -8,12 +8,12 @@ public class JoueurMorpionAfricain extends Joueur{
 	private int score;
 	
 	public JoueurMorpionAfricain(){
-		score=0;
+		super();
 	}
 	
-	public JoueurMorpionAfricain(StringBuffer n){
+	public JoueurMorpionAfricain(int i){
+		super(i);
 		score=0;
-		modifierNom(n);
 	}
 	
 	public void setJoueurPrecedent(Joueur j){
@@ -32,8 +32,8 @@ public class JoueurMorpionAfricain extends Joueur{
 		return joueurSuivant;
 	}
 	
-	public void setScore(int s){
-		score=s;
+	public void addScore(){
+		score++;
 	}
 	
 	public int getScore(){
@@ -90,8 +90,7 @@ public class JoueurMorpionAfricain extends Joueur{
 	
 	public String toString(){
 		StringBuffer res=new StringBuffer();
-		res.append("Joueur ");
-		res.append(id+1);
+		res.append(getNom());
 		return res.toString();
 	}
 }

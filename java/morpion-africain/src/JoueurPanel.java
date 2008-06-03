@@ -20,11 +20,12 @@ public class JoueurPanel extends JPanel{
     JTextField champNom;
     JLabel score=new JLabel("Score");
     JLabel scoreEntier=new JLabel("0");
-    public JoueurPanel(Color c,String chaine){
+    public JoueurPanel(Color c,JoueurMorpionAfricainGraphique j){
         
-    	joueur=null;
-        titre=new JLabel(chaine);
-        champNom=new JTextField(chaine);
+    	joueur=j;
+    	joueur.setPanel(this);
+        titre=new JLabel(joueur.toString());
+        champNom=new JTextField(joueur.toString());
         
         setBackground(c);
         setBorder(new LineBorder(Color.black,1));
@@ -54,7 +55,7 @@ public class JoueurPanel extends JPanel{
         
         champNom.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent e){
-        		titre.setText(champNom.getText());
+        		setNom(champNom.getText());
         		champNom.setVisible(false);
         		nom.setVisible(false);
         	}
@@ -81,7 +82,7 @@ public class JoueurPanel extends JPanel{
     }
     
     public void setNom(String nom){
-    	StringBuffer n = new StringBuffer(nom);
-    	joueur.setNom(n);
+    	titre.setText(nom);
+    	joueur.modifierNom(nom);
     }
 }
