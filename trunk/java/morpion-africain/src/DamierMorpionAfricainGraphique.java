@@ -9,6 +9,9 @@
  */
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;
+import javax.imageio.*;
+import java.awt.image.*;
 public class DamierMorpionAfricainGraphique extends DamierMorpionAfricain{
     JPanel terrainDeJeu;
     private GridBagLayout magrille=new GridBagLayout();
@@ -60,6 +63,7 @@ public class DamierMorpionAfricainGraphique extends DamierMorpionAfricain{
         terrainDeJeu.setPreferredSize(new Dimension(150,150));
         terrainDeJeu.setVisible(true);
     }
+    
     
     public JPanel getTerrainDeJeu(){
         return terrainDeJeu;
