@@ -24,6 +24,7 @@ public class CaseMorpionAfricainGraphique extends CaseMorpionAfricain{
         boutonGraphique.setBackground(Color.WHITE);
         boutonGraphique.setMinimumSize(new Dimension(20,20));
         boutonGraphique.setPreferredSize(new Dimension(30,30));
+        boutonGraphique.setVisible(true);
     }
     
     public JButton getButton(){
