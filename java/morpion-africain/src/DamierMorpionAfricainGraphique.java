@@ -83,4 +83,8 @@ public class DamierMorpionAfricainGraphique extends DamierMorpionAfricain{
         contraintes.fill=fill;
         contraintes.anchor=anchor;
     }  
+    
+    public CaseMorpionAfricainGraphique getCase(int i){
+    	return (CaseMorpionAfricainGraphique)cases[i];
+    }
 }

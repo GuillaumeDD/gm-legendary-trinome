@@ -32,10 +32,10 @@ public class CaseMorpionAfricainGraphique extends CaseMorpionAfricain{
         boutonGraphique.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent e){
         		if(morpion.getTour()<6){
-        			morpion.initialiser();
+        			morpion.initialiser(getId());
         		}
         		else {
-        			
+        			morpion.jouer(getId());
         		}
         		morpion.setTour(morpion.getTour()+1);
         	}
@@ -45,4 +45,11 @@ public class CaseMorpionAfricainGraphique extends CaseMorpionAfricain{
     public JButton getButton(){
         return boutonGraphique;
     }
+	
+	public void setColor(int numJoueur){
+		if(numJoueur==1)
+			boutonGraphique.setBackground(Color.BLUE);
+		else
+	        boutonGraphique.setBackground(Color.RED);
+	}
 }
