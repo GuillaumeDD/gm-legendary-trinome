@@ -58,7 +58,7 @@ public class JoueurMorpionAfricain extends Joueur{
 	public void jouer(CaseMorpionAfricain origine,CaseMorpionAfricain destination) throws CaseInvalideException{
 /* Tests pour savoir si la case destination est libre 
  * et si la case origine est  bien au joueur*/
-		if(estUneCaseOccupee(origine) && destination.getLibre()){
+		if(estUneCaseOccupee(origine) && destination.getLibre() && origine.estAdjacent(destination) && destination.estAdjacent(origine)){
 			origine.setLibre(true,null);
 			destination.setLibre(false,this);
 			supprimerCaseOccupee(origine);
