@@ -18,7 +18,7 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
         super();
         damier=new DamierMorpionAfricainGraphique();
         fenetre=new FenetreMorpionAfricain((DamierMorpionAfricainGraphique)damier,joueurs);
-        
+        System.out.println("Test");
         
     }
  
