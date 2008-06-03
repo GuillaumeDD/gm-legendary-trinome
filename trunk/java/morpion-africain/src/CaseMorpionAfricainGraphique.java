@@ -35,8 +35,10 @@ public class CaseMorpionAfricainGraphique extends CaseMorpionAfricain{
         		if(morpion.getTour()<6)
         			morpion.initialiser(getId());
         		else 
-        			if(morpion.getTour()%2==0)
+        			if(morpion.getTour()%2==0){
         				morpion.tamponNumCase=getId();
+        				morpion.setTour(morpion.getTour()+1);
+        			}
         			else
         				morpion.jouer(morpion.tamponNumCase,getId());
         		
