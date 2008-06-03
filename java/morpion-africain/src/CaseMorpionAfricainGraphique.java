@@ -12,13 +12,13 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 public class CaseMorpionAfricainGraphique extends CaseMorpionAfricain{
+	private MorpionAfricainGraphique morpion;
     JButton boutonGraphique;
+    
     public CaseMorpionAfricainGraphique(){
-        super();
-        boutonGraphique = new JButton(String.valueOf(id));
     }
     
-    public CaseMorpionAfricainGraphique(int identifiant){
+    public CaseMorpionAfricainGraphique(int identifiant, MorpionAfricainGraphique m){
         super(identifiant);
         boutonGraphique = new JButton(String.valueOf(id));
         boutonGraphique.setBorder(new LineBorder(Color.black,1));
@@ -31,7 +31,13 @@ public class CaseMorpionAfricainGraphique extends CaseMorpionAfricain{
         
         boutonGraphique.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent e){
-        		
+        		if(morpion.getTour()<6){
+        			morpion.initialiser();
+        		}
+        		else {
+        			
+        		}
+        		morpion.setTour(morpion.getTour()+1);i
         	}
         });
     }
