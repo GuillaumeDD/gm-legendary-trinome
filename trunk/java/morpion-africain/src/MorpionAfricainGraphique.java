@@ -52,7 +52,9 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
 			getDamier().getCase(d).setColor(joueurCourant.getId());	
 			changerJoueurCourant();
 			fenetre.setTextInfos("A "+joueurCourant+" de jouer");
-		}catch( CaseInvalideException e){fenetre.setTextInfos("Mauvaise case. "+joueurCourant+" rejoue !");tour++;}
+		}catch( CaseInvalideException e){
+			fenetre.setTextInfos("Mauvaise case. "+joueurCourant+" rejoue !");
+		}
 		
     }
 	
@@ -75,5 +77,14 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
 	public void changerJoueurCourant(){
 		super.changerJoueurCourant();
 		setTour(getTour()+1);
+		setaChoisiLePion(false);
+	}
+	
+	public boolean aChoisiLePion(){
+		return aChoisiLePion;
+	}
+	
+	public void setaChoisiLePion(boolean b){
+		aChoisiLePion=b;
 	}
 }
