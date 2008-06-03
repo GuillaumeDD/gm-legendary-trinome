@@ -31,27 +31,47 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
     }
     
     public void initialiser(int numCase){
-		int i=0;
-		int c=0;	
-		while(i<6){
+		fenetre.setTextInfos("A "+joueurCourant.getJoueurSuivant().getNom()+" de jouer");
+		// TEST POUR CASE LIBRE
+		//while(!damier.getCase(c-1).getLibre());
+		
+		getDamier().getCase(numCase-1).setColor(joueurCourant.getId());
+		
+		//Enlever le try ??
+		try{
+			((JoueurMorpionAfricain)joueurCourant).initialiser(damier.getCase(numCase-1));
+			changerJoueurCourant();
+		}catch(CaseInvalideException e){System.out.println("Case occupée ou inexistante !");}
+    }
+    
+    public void jouer(int numCase){
+    	int o,d;
+		o=0;
+		d=0;
+		System.out.println("Phase de jeu");
+		while(!fini()){
+			//Tant que les case selectionnées ne sont pas valide (ie : o est au joueur et d est libre) on rerentre les valeurs
 			do{
-				fenetre.setTextInfos("A "+joueurCourant.getNom()+" de jouer");
-				//c=Integer.parseInt(entree.readLine());
-			}while(!damier.getCase(c-1).getLibre());
-			
+				System.out.println(joueurCourant);
+				try {
+					o=Integer.parseInt(entree.readLine());
+					d=Integer.parseInt(entree.readLine());
+				} catch( IOException e ) {e.printStackTrace();}
+			}while(damier.getCase(o-1).getJoueur()!=(JoueurMorpionAfricain)joueurCourant || damier.getCase(d-1).getLibre());
 			try{
-				((JoueurMorpionAfricain)joueurCourant).initialiser(damier.getCase(c-1));
+				((JoueurMorpionAfricain)joueurCourant).jouer(damier.getCase(o-1),damier.getCase(d-1));
 				changerJoueurCourant();
-				i++;
-			}catch(CaseInvalideException e){
-				System.out.println("Case occupée ou inexistante !");
+			}catch( CaseInvalideException e){
+				System.out.println("La case est invalide !");
 			}
-
-
+				// !!! AFFICHAGE EN CONSOLE A SUPPRIMER PLUS TARD !!!
+			System.out.println(damier);
+			//!!!
 		}
-		// !!! AFFICHAGE EN CONSOLE A SUPPRIMER PLUS TARD !!!
-		System.out.println(damier);
-		//!!!
+		changerJoueurCourant();
+		((JoueurMorpionAfricain)joueurCourant).setScore(((JoueurMorpionAfricain)joueurCourant).getScore()+1);
+		System.out.println("Victoire du Joueur : "+ (joueurCourant.getId()+1));
+		System.out.println("Scores : J1 - "+((JoueurMorpionAfricain)joueurs[0]).getScore()+" J2 - "+((JoueurMorpionAfricain)(joueurs[1].getJoueurSuivant())).getScore());
     }
 	
 	public int getTour(){
@@ -60,6 +80,10 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
 	
 	public void setTour(int i){
 		tour=i;
+	}
+	
+	public DamierMorpionAfricainGraphique getDamier(){
+		return (DamierMorpionAfricainGraphique)damier;
 	}
  
 }
