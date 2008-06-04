@@ -23,7 +23,7 @@ public class JoueurMorpionAfricainGraphique extends JoueurMorpionAfricain{
 		panel=p;
 	}
 	
-	public void addScore(int score){
+	public void addScore(){
 		super.addScore();
 		panel.setScore(getScore());
 	}

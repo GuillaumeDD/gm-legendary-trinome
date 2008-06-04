@@ -84,6 +84,10 @@ public class JoueurMorpionAfricain extends Joueur{
 		return res;
 	}
 	
+	public List<CaseMorpionAfricain> getCasesOccupees(){
+		return casesOccupees;
+	}
+	
 	public int getCasesOccupees(int id){
 		return casesOccupees.get(id).getId(); 
 	}

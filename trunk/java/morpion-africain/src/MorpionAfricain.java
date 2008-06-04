@@ -106,8 +106,6 @@ public class MorpionAfricain extends Jeu{
 		
 		ArrayList<ArrayList<Integer>> solutions = new ArrayList<ArrayList<Integer>>();
 		
-		List<Integer> casesJoueur0 = new ArrayList<Integer>();
-		List<Integer> casesJoueur1 = new ArrayList<Integer>();
 		
 		solutions.add(new ArrayList<Integer>());
 		solutions.get(0).add(0);
@@ -141,33 +139,44 @@ public class MorpionAfricain extends Jeu{
 		solutions.get(7).add(2);
 		solutions.get(7).add(4);
 		solutions.get(7).add(6);
-	    		
-		casesJoueur0.add(getJoueur(0).getCasesOccupees(0));
-		casesJoueur0.add(getJoueur(0).getCasesOccupees(1));
-		casesJoueur0.add(getJoueur(0).getCasesOccupees(2));
-		casesJoueur1.add(getJoueur(1).getCasesOccupees(0));
-		casesJoueur1.add(getJoueur(1).getCasesOccupees(1));
-		casesJoueur1.add(getJoueur(1).getCasesOccupees(2));
-		
-		int i=0;
-		do{
-			if(
-				(
-				     casesJoueur0.contains(solutions.get(i).get(0)) 
+
+		int i=0;	
+		if(getJoueur(0).getCasesOccupees().size()==3){
+			List<Integer> casesJoueur0 = new ArrayList<Integer>();
+			casesJoueur0.add(getJoueur(0).getCasesOccupees(0));
+			casesJoueur0.add(getJoueur(0).getCasesOccupees(1));
+			casesJoueur0.add(getJoueur(0).getCasesOccupees(2));
+			
+			do{
+				if(
+					 casesJoueur0.contains(solutions.get(i).get(0)) 
 				  && casesJoueur0.contains(solutions.get(i).get(1)) 
 				  && casesJoueur0.contains(solutions.get(i).get(2))
 				)
-				||  
-				(
+					res=true;
+				
+				i++;
+			}while(!res && i<8);
+		}
+		
+		i=0;
+		if(getJoueur(1).getCasesOccupees().size()==3 && res==false){
+			List<Integer> casesJoueur1 = new ArrayList<Integer>();
+			casesJoueur1.add(getJoueur(1).getCasesOccupees(0));
+			casesJoueur1.add(getJoueur(1).getCasesOccupees(1));
+			casesJoueur1.add(getJoueur(1).getCasesOccupees(2));
+
+			do{
+				if(
 					 casesJoueur1.contains(solutions.get(i).get(0)) 
 				  && casesJoueur1.contains(solutions.get(i).get(1)) 
 				  && casesJoueur1.contains(solutions.get(i).get(2))
-				 )
-			  ){
+				)
 				res=true;
-			}
+				
 			i++;
-		}while(!res && i<8);
+			}while(!res && i<8);
+		}
 		
 		return res;
 	}
