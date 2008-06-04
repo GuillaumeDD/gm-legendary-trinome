@@ -16,6 +16,8 @@ public class FenetreMorpionAfricain extends JFrame{
     JLabel titre=new JLabel("Morpion africain");
     JLabel infos=new JLabel("Joueur 1 commence");
     JPanel conteneur=new JPanel();
+    JButton redemarrer=new JButton("Réinitialiser");
+    JButton nouvellePartie=new JButton("Nouvelle partie");
     JPanel j1;
     JPanel j2;
     
@@ -56,6 +58,14 @@ public class FenetreMorpionAfricain extends JFrame{
         addConstraints(0,2,4,1,1.0,0.25,GridBagConstraints.NONE,GridBagConstraints.CENTER);
         conteneur.add(infos);   
         magrille.setConstraints(infos, contraintes);
+        
+        addConstraints(0,3,4,1,1.0,0.25,GridBagConstraints.NONE,GridBagConstraints.CENTER);
+        conteneur.add(nouvellePartie);   
+        magrille.setConstraints(nouvellePartie, contraintes);   
+        
+        addConstraints(0,4,4,1,1.0,0.25,GridBagConstraints.NONE,GridBagConstraints.CENTER);
+        conteneur.add(redemarrer);   
+        magrille.setConstraints(redemarrer, contraintes);
         
         conteneur.setLayout(magrille);
         
