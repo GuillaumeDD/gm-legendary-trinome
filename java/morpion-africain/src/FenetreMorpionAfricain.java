@@ -9,6 +9,8 @@
  */
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 public class FenetreMorpionAfricain extends JFrame{
     
     DamierMorpionAfricainGraphique damier;
@@ -71,6 +73,16 @@ public class FenetreMorpionAfricain extends JFrame{
         
         this.setContentPane(conteneur);
         this.setVisible(true);
+        
+        nouvellePartie.addActionListener(new ActionListener(){
+        	public void actionPerformed(ActionEvent e){
+        		((JoueurMorpionAfricainGraphique)joueurs[0]).reinitialiser();
+        		((JoueurMorpionAfricainGraphique)joueurs[1]).reinitialiser();
+        		damier.reinitialiser();
+        	    infos.setText(joueurs[0].getNom()+" commence");
+        	}
+        });
+     
     }
     
     public void addConstraints(int gridx,int gridy, int gridwith,int gridheight,double weightx,double weighty,int fill, int anchor){
