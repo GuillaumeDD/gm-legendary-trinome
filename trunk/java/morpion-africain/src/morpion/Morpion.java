@@ -87,7 +87,7 @@ public class Morpion extends Jeu{
 				} catch( IOException e ) {e.printStackTrace();}
 			}while(!damier.getCase(c-1).getLibre());
 			try{
-				getJoueurCourant().initialiser(damier.getCase(c-1));
+				getJoueurCourant().jouer(damier.getCase(c-1));
 				changerJoueurCourant();
 				i++;
 			}catch(CaseInvalideException e){
@@ -118,14 +118,8 @@ public class Morpion extends Jeu{
 		joueurTest=joueurCourant.getJoueurPrecedent();
 		taille=getJoueurTest().getCasesOccupees().size();
 		
-		//Si 9 pions ont été joués on a fini
-		if(getJoueur(0).getCasesOccupees().size()+getJoueur(1).getCasesOccupees().size()==9){
-			res=true;
-			joueurVainqueur=null;
-		}
-		
 		//Si le joueur testé a posé 3 pions ou plus
-		if(taille>=3 && !res){
+		if(taille>=3){
 			List<Integer> casesJoueurTest = new ArrayList<Integer>();
 			
 			for(i=0;i<taille;i++)
@@ -143,6 +137,11 @@ public class Morpion extends Jeu{
 				}
 				i++;
 			}while(!res && i<8);
+		}
+		//Si 9 pions ont été joués et que personne n'a gagné, personne n'a gagné ^^
+		if(getJoueur(0).getCasesOccupees().size()+getJoueur(1).getCasesOccupees().size()==9 && !res){
+			res=true;
+			joueurVainqueur=null;
 		}
 		return res;
 	}
