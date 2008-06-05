@@ -51,7 +51,7 @@ public class JoueurMorpionAfricain extends Joueur{
 		
 	}
 	
-	public void reinitialiser(){
+	public void reset(){
 		casesOccupees.clear();
 	}
 	

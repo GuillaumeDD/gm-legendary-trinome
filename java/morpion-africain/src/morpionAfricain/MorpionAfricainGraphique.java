@@ -2,16 +2,6 @@ package morpionAfricain;
 import jeu.*;
 import java.awt.*;
 
-/*
-  * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Nyho
- */
-
 public class MorpionAfricainGraphique extends MorpionAfricain{
     
     FenetreMorpionAfricain fenetre;
@@ -27,14 +17,36 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
 		joueurs[1]=new JoueurMorpionAfricainGraphique(1,new Color(102,255,0));
         initialiserJoueurs();
         damier=new DamierMorpionAfricainGraphique(this);
-        fenetre=new FenetreMorpionAfricain((DamierMorpionAfricainGraphique)damier,joueurs);
+        fenetre=new FenetreMorpionAfricain(this);
+    }
+    
+    public void boutonActionne(int caseId){
+    	if(getTour()<6){
+			initialiser(caseId);
+		}else{ 
+			if(!aChoisiLePion()){
+				//si le joueur n'a pas choisi de pion
+    			if(getJoueurCourant().estUneCaseOccupee(damier.getCase(caseId))){
+    				//si cette case contient un pion du joueur
+    				setTamponNumCase(caseId);
+    				setaChoisiLePion(true);//alors il a choisi son pion
+    			}else{
+    				//dans le cas contraire il n'a pas choisi son pion
+    				setaChoisiLePion(false);
+    			}
+    		}else{
+    			//si le joueur a choisi son pion, on joue
+    			jouer(getTamponNumCase(),caseId);
+    			// on met le choix du pion à false dans le cas où le pion est "bloqué"
+    			setaChoisiLePion(false);
+    			//il n'y aura pas d'appel à changerJoueurCourant qui remettra à false
+    		}
+		}
     }
     
     public void initialiser(int numCase){
 		try{
 			getJoueurCourant().initialiser(damier.getCase(numCase));
-			//Changement de la couleur
-			getDamier().getCase(numCase).setColor(joueurCourant.getId());
 			changerJoueurCourant();
 			fenetre.setTextInfos("A "+joueurCourant+" de jouer");
 			verifierEtatDeLaPartie();
@@ -46,8 +58,6 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
 
 			try{
 				getJoueurCourant().jouer(damier.getCase(o),damier.getCase(d));
-				getDamier().getCase(o).setColor(-1);
-				getDamier().getCase(d).setColor(joueurCourant.getId());	
 				changerJoueurCourant();
 				fenetre.setTextInfos("A "+joueurCourant+" de jouer");
 			}catch( CaseInvalideException e){
@@ -99,8 +109,20 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
     public void reinitialiser(){
     	super.reinitialiser();
     	for(int i=0;i<9;i++)
-    		getDamier().getCase(i).setColor(-1);
+    		getDamier().getCase(i).reset();
     	partieEnCours=true;
     	setTour(0);
+    }
+    
+    public void setTamponNumCase(int caseId){
+    	tamponNumCase=caseId;
+    }
+    
+    public int getTamponNumCase(){
+    	return tamponNumCase;
+    }
+    
+    public JoueurMorpionAfricainGraphique getJoueur(int id){
+    	return (JoueurMorpionAfricainGraphique)joueurs[id];
     }
 }

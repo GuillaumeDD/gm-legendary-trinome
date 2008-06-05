@@ -1,21 +1,11 @@
 package morpionAfricain;
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author Nyho
- */
 import javax.swing.*;import jeu.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class FenetreMorpionAfricain extends JFrame{
-    
-    DamierMorpionAfricainGraphique damier;
-    Joueur joueurs[];
+    MorpionAfricainGraphique jeuCourant;
     JLabel titre=new JLabel("Morpion africain");
     JLabel infos=new JLabel("Joueur 1 commence");
     JPanel conteneur=new JPanel();
@@ -26,12 +16,12 @@ public class FenetreMorpionAfricain extends JFrame{
     private GridBagLayout magrille=new GridBagLayout();
     private GridBagConstraints contraintes=new GridBagConstraints();
     
-    public FenetreMorpionAfricain(DamierMorpionAfricainGraphique d,Joueur j[]){
-        super("Morpion africain");
-        damier=d;
-        joueurs=j;
-        j1=new JoueurPanel((JoueurMorpionAfricainGraphique)j[0]);
-        j2=new JoueurPanel((JoueurMorpionAfricainGraphique)j[1]);
+    public FenetreMorpionAfricain(MorpionAfricainGraphique jeu){
+    	super("Morpion africain");
+    	jeuCourant=jeu;
+        //damier=jeuCourant.getDamier();
+        j1=new JoueurPanel(jeuCourant.getJoueur(0));
+        j2=new JoueurPanel(jeuCourant.getJoueur(1));
         this.setBounds(100,100,450,300);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
@@ -50,8 +40,8 @@ public class FenetreMorpionAfricain extends JFrame{
         magrille.setConstraints(j1, contraintes);
 
         addConstraints(1,1,2,1,0.5,0.50,GridBagConstraints.NONE,GridBagConstraints.CENTER);
-        conteneur.add(damier.getTerrainDeJeu());
-        magrille.setConstraints(damier.getTerrainDeJeu(), contraintes);
+        conteneur.add(jeuCourant.getDamier().getTerrainDeJeu());
+        magrille.setConstraints(jeuCourant.getDamier().getTerrainDeJeu(), contraintes);
         
         addConstraints(3,1,1,1,0.25,0.50,GridBagConstraints.NONE,GridBagConstraints.CENTER);
         conteneur.add(j2);
@@ -72,10 +62,7 @@ public class FenetreMorpionAfricain extends JFrame{
         
         nouvellePartie.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent e){
-        		((JoueurMorpionAfricainGraphique)joueurs[0]).reinitialiser();
-        		((JoueurMorpionAfricainGraphique)joueurs[1]).reinitialiser();
-        		damier.getMorpion().reinitialiser();
-        	    infos.setText(damier.getMorpion().getJoueurCourant().getNom()+" commence");
+        		reset();
         	}
         });
      
@@ -96,4 +83,8 @@ public class FenetreMorpionAfricain extends JFrame{
     	infos.setText(t);
     }
     
+    public void reset(){
+    	jeuCourant.reinitialiser();
+	    infos.setText(jeuCourant.getJoueurCourant()+" commence");
+    }
 }

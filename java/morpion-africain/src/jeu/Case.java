@@ -41,4 +41,9 @@ public class Case {
 	public Joueur getJoueur(){
 		return joueur;
 	}
+	
+	public void reset(){
+		joueur=null;
+		libre=true;
+	}
 }

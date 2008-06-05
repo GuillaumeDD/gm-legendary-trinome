@@ -66,8 +66,8 @@ public class MorpionAfricain extends Jeu{
 	
 	public void reinitialiser(){
 		damier.reinitialiser();
-		getJoueur(0).reinitialiser();
-		getJoueur(1).reinitialiser();
+		getJoueur(0).reset();
+		getJoueur(1).reset();
 		changerJoueurCourant();
 	}
 	
