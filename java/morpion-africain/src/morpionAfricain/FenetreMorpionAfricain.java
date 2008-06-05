@@ -30,8 +30,8 @@ public class FenetreMorpionAfricain extends JFrame{
         super("Morpion africain");
         damier=d;
         joueurs=j;
-        j1=new JoueurPanel(new Color(255,255,0),(JoueurMorpionAfricainGraphique)j[0]);
-        j2=new JoueurPanel(new Color(102,255,0),(JoueurMorpionAfricainGraphique)j[1]);
+        j1=new JoueurPanel((JoueurMorpionAfricainGraphique)j[0]);
+        j2=new JoueurPanel((JoueurMorpionAfricainGraphique)j[1]);
         this.setBounds(100,100,450,300);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);

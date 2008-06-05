@@ -10,9 +10,6 @@ package morpionAfricain;
  */
 import javax.swing.*;import jeu.*;
 import java.awt.*;
-import java.io.*;
-import javax.imageio.*;
-import java.awt.image.*;
 public class DamierMorpionAfricainGraphique extends DamierMorpionAfricain{
 	private MorpionAfricainGraphique morpion;
     DrawingPanel terrainDeJeu;
