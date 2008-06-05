@@ -42,7 +42,7 @@ public class CaseMorpion extends Case{
 	}
 	
 	public JoueurMorpion getJoueur(){
-		return (JoueurMorpion)getJoueur();
+		return (JoueurMorpion)super.getJoueur();
 	}
-
+}
 	
