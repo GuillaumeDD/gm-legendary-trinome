@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class Morpion extends Jeu{
 	DamierMorpion damier;
+	int partie=0;
 //on redefinit un joueurCourant de type JoueurMorpionAfricain car il doit pouvoir utiliser les méthodes initialiser() et jouer()
 	Joueur joueurCourant,joueurVainqueur,joueurTest;
 	ArrayList<ArrayList<Integer>> solutions;
@@ -103,13 +104,13 @@ public class Morpion extends Jeu{
 		System.out.println(damier);
 	}
 	
-	public void reinitialiser(){
-		damier.reinitialiser();
-		getJoueur(0).reinitialiser();
-		getJoueur(1).reinitialiser();
-		changerJoueurCourant();
-	}
-		
+	public void reset(){
+		damier.reset();
+		getJoueur(0).reset();
+		getJoueur(1).reset();
+		nouvellePartie();
+	}	
+	
 	public boolean fini(){
 		boolean res=false;
 		int i,taille;
@@ -161,4 +162,17 @@ public class Morpion extends Jeu{
 	public JoueurMorpion getJoueurTest(){
 		return (JoueurMorpion)joueurTest;
 	}
+	
+    public void nouvellePartie(){
+    	partie++;
+    	if(partie%2!=0){
+    		joueurCourant=getJoueur(1);
+    	}else{
+    		joueurCourant=getJoueur(0);
+    	}
+    }
+    
+    public int getNombrePartie(){
+    	return partie;
+    }
 }

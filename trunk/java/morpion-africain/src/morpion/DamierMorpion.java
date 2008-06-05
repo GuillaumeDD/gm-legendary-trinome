@@ -116,10 +116,9 @@ public class DamierMorpion {
 		return affichage.toString();
 	}
 	
-	public void reinitialiser(){
+	public void reset(){
 		for(int i=0;i<9;i++){
-			cases[i].setJoueur(null);
-			cases[i].setLibre(true,null);
+			cases[i].reset();
 		}
 	}
 }
