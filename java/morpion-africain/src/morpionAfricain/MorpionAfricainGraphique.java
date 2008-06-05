@@ -106,12 +106,14 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
 		}	
 	}
     
-    public void reinitialiser(){
-    	super.reinitialiser();
-    	for(int i=0;i<9;i++)
-    		getDamier().getCase(i).reset();
+    public void reset(){
+		getJoueur(0).reset();
+		getJoueur(1).reset();
+    	getDamier().reset();
+    	aChoisiLePion=false;
     	partieEnCours=true;
     	setTour(0);
+    	nouvellePartie();
     }
     
     public void setTamponNumCase(int caseId){
