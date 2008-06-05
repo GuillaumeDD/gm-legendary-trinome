@@ -50,7 +50,6 @@ public class Morpion extends Jeu{
 					
 				} catch( IOException e ) {e.printStackTrace();}
 			}while(!damier.getCase(c-1).getLibre());
-			
 			try{
 				getJoueurCourant().initialiser(damier.getCase(c-1));
 				changerJoueurCourant();
@@ -58,9 +57,9 @@ public class Morpion extends Jeu{
 			}catch(CaseInvalideException e){
 				System.out.println("Case occupée ou inexistante !");
 			}
-
-
 		}
+		
+		System.out.println("c'est fini");
 		switch(joueurVainqueur.getId()){
 			case 0 : System.out.println(joueurs[0]+" est vainqueur");break;
 			case 1 : System.out.println(joueurs[0]+" est vainqueur");break;
@@ -120,8 +119,10 @@ public class Morpion extends Jeu{
 
 		int i=0;
 		int tailleJ0=0,tailleJ1=0;
-		if(getJoueur(0).getCasesOccupees().size()==3){
-			tailleJ0=getJoueur(0).getCasesOccupees().size();
+		tailleJ0=getJoueur(0).getCasesOccupees().size();
+		tailleJ1=getJoueur(1).getCasesOccupees().size();
+		
+		if(tailleJ0>=3){
 			List<Integer> casesJoueur0 = new ArrayList<Integer>();
 			
 			for(i=0;i<tailleJ0;i++)
@@ -143,8 +144,7 @@ public class Morpion extends Jeu{
 		}
 		
 		i=0;
-		if(getJoueur(1).getCasesOccupees().size()==3 && res==false){
-			tailleJ1=getJoueur(0).getCasesOccupees().size();
+		if(tailleJ1>=3 && !res){
 			List<Integer> casesJoueur1 = new ArrayList<Integer>();
 			
 			for(i=0;i<tailleJ1;i++)
@@ -163,9 +163,11 @@ public class Morpion extends Jeu{
 			i++;
 			}while(!res && i<tailleJ1);
 		}
-		if(tailleJ0+tailleJ1==9)
+		if(tailleJ0+tailleJ1==9){
 			res=true;
-		
+			joueurVainqueur=null;
+		}
+
 		return res;
 	}
 	
