@@ -1,5 +1,4 @@
 package morpionAfricain;
-import jeu.*;
 public class DamierMorpionAfricain {
 	CaseMorpionAfricain cases[] = new CaseMorpionAfricain[9];
 	

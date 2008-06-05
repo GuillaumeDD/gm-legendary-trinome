@@ -9,7 +9,6 @@ package morpionAfricain;
  * @author Nyho
  */
 import java.awt.*;
-import jeu.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.LineBorder;

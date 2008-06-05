@@ -1,7 +1,6 @@
 package morpionAfricain;
-import java.io.BufferedReader;import jeu.*;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import jeu.*;
+import java.awt.*;
 
 /*
   * To change this template, choose Tools | Templates
@@ -24,8 +23,8 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
     public MorpionAfricainGraphique(){
         super();
 		joueurCourant=new JoueurMorpionAfricainGraphique();
-		joueurs[0]=new JoueurMorpionAfricainGraphique(0);
-		joueurs[1]=new JoueurMorpionAfricainGraphique(1);
+		joueurs[0]=new JoueurMorpionAfricainGraphique(0,new Color(255,255,0));
+		joueurs[1]=new JoueurMorpionAfricainGraphique(1,new Color(102,255,0));
         initialiserJoueurs();
         damier=new DamierMorpionAfricainGraphique(this);
         fenetre=new FenetreMorpionAfricain((DamierMorpionAfricainGraphique)damier,joueurs);

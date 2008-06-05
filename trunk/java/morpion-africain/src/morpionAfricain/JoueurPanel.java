@@ -1,5 +1,4 @@
 package morpionAfricain;
-import jeu.*;
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -22,14 +21,14 @@ public class JoueurPanel extends JPanel{
     JTextField champNom;
     JLabel score=new JLabel("Score");
     JLabel scoreEntier=new JLabel("0");
-    public JoueurPanel(Color c,JoueurMorpionAfricainGraphique j){
+    public JoueurPanel(JoueurMorpionAfricainGraphique j){
         
     	joueur=j;
     	joueur.setPanel(this);
         titre=new JLabel(joueur.toString());
         champNom=new JTextField(joueur.toString());
         
-        setBackground(c);
+        setBackground(j.getCouleur());
         setBorder(new LineBorder(Color.black,1));
         setPreferredSize(new Dimension(100,100));
         
