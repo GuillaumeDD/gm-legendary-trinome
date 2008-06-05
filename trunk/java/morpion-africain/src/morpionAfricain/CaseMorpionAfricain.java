@@ -42,6 +42,6 @@ public class CaseMorpionAfricain extends Case{
 	}
 	
 	public JoueurMorpionAfricain getJoueur(){
-		return (JoueurMorpionAfricain)getJoueur();
+		return (JoueurMorpionAfricain)super.getJoueur();
 	}
 }
