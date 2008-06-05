@@ -1,9 +1,10 @@
+package jeu;
 import javax.swing.*;
 import java.awt.*;
-class DrawingPanel extends JPanel {
+public class DrawingPanel extends JPanel {
 		     private Image img = null;
 		    
-		     DrawingPanel(Image image)
+		     public DrawingPanel(Image image)
 		     { img = image; }
 		  
 		     public void paintComponent(Graphics g) {

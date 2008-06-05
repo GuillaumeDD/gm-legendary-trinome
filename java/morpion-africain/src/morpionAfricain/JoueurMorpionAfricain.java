@@ -1,6 +1,7 @@
+package morpionAfricain;
 	import java.util.ArrayList;
 import java.util.List;
-
+import jeu.*;
 
 public class JoueurMorpionAfricain extends Joueur{
 	

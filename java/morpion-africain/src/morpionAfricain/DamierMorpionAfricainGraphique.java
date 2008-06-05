@@ -1,3 +1,4 @@
+package morpionAfricain;
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -7,7 +8,7 @@
  *
  * @author Nyho
  */
-import javax.swing.*;
+import javax.swing.*;import jeu.*;
 import java.awt.*;
 import java.io.*;
 import javax.imageio.*;

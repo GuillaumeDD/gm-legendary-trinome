@@ -1,8 +1,9 @@
+package jeu;
 
 public class Joueur extends Personne{
 
-	Joueur joueurPrecedent;
-	Joueur joueurSuivant;
+	public Joueur joueurPrecedent;
+	public Joueur joueurSuivant;
 	int id;
 	
 	public Joueur(){
