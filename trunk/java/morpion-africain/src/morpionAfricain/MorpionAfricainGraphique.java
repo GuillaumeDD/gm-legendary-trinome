@@ -1,4 +1,5 @@
-import java.io.BufferedReader;
+package morpionAfricain;
+import java.io.BufferedReader;import jeu.*;
 import java.io.IOException;
 import java.io.InputStreamReader;
 

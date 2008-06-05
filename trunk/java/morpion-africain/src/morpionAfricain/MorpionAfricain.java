@@ -1,4 +1,5 @@
-import java.io.*;
+package morpionAfricain;
+import java.io.*;import jeu.*;
 import java.util.ArrayList;
 import java.util.List;
 public class MorpionAfricain extends Jeu{

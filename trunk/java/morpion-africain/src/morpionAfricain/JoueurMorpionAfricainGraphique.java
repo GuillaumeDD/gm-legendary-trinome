@@ -1,5 +1,6 @@
+package morpionAfricain;
 import java.awt.Color;
-
+import jeu.*;
 
 public class JoueurMorpionAfricainGraphique extends JoueurMorpionAfricain{
 
@@ -12,7 +13,7 @@ public class JoueurMorpionAfricainGraphique extends JoueurMorpionAfricain{
 	public JoueurMorpionAfricainGraphique(int i){
 		
 		super(i);		
-		if(id==0)
+		if(getId()==0)
 			panel = new JoueurPanel(new Color(255,255,0),this);
 		else
 			panel = new JoueurPanel(new Color(102,255,0),this);

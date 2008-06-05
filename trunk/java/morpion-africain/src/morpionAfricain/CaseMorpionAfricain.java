@@ -1,3 +1,5 @@
+package morpionAfricain;
+import jeu.*;
 import java.util.*;
 public class CaseMorpionAfricain extends Case{
 	/*
@@ -40,6 +42,6 @@ public class CaseMorpionAfricain extends Case{
 	}
 	
 	public JoueurMorpionAfricain getJoueur(){
-		return (JoueurMorpionAfricain)joueur;
+		return (JoueurMorpionAfricain)getJoueur();
 	}
 }

@@ -1,6 +1,7 @@
+package jeu;
 
 public class Jeu {
-	Joueur joueurs[];
+	public Joueur joueurs[];
 	int nombreDeJoueurs;
 	Joueur joueurCourant;
 	
@@ -13,5 +14,9 @@ public class Jeu {
 	}
 	
 	public void changerJoueurCourant(){
+	}
+	
+	public Joueur[] getJoueurs(){
+		return joueurs;
 	}
 }
