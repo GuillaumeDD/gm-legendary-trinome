@@ -56,84 +56,27 @@ public class MorpionAfricain extends Jeu{
 		
 	}
         
-        public void initialiserJoueurs(){
-      		joueurs[0].setId(0);
-			joueurs[1].setId(1);
+    public void initialiserJoueurs(){
+      	joueurs[0].setId(0);
+		joueurs[1].setId(1);
+		
+		joueurs[0].modifierNom("Joueur 1");
+		joueurs[1].modifierNom("Joueur 2");
 			
-			joueurs[0].setJoueurPrecedent(joueurs[1]);
-			joueurs[0].setJoueurSuivant(joueurs[1]);
-			joueurs[1].setJoueurPrecedent(joueurs[0]);
-			joueurs[1].setJoueurSuivant(joueurs[0]);
+		joueurs[0].setJoueurPrecedent(joueurs[1]);
+		joueurs[0].setJoueurSuivant(joueurs[1]);
+		joueurs[1].setJoueurPrecedent(joueurs[0]);
+		joueurs[1].setJoueurSuivant(joueurs[0]);
 	                
-	                // On determine le premier joueur
-			joueurCourant=joueurs[0];
-        }
-        
-	public void initialiser(){
-		int i=0;
-		BufferedReader entree = new BufferedReader(new InputStreamReader(System.in));
-
-		System.out.println("Phase d'initialisation");
-		int c=0;	
-		while(i<6){
-			do{
-				try {
-					System.out.println(joueurCourant);
-					System.out.println("Entrer la case : ");
-					c=Integer.parseInt(entree.readLine());
-					
-				} catch( IOException e ) {e.printStackTrace();}
-			}while(!damier.getCase(c-1).getLibre());
-			
-			try{
-				getJoueurCourant().initialiser(damier.getCase(c-1));
-				changerJoueurCourant();
-				i++;
-			}catch(CaseInvalideException e){
-				System.out.println("Case occupée ou inexistante !");
-			}
-
-
-		}
-		System.out.println(damier);
-	}
-	
+	    // On determine le premier joueur
+		joueurCourant=joueurs[0];
+    }
+        	
 	public void reset(){
 		damier.reset();
 		getJoueur(0).reset();
 		getJoueur(1).reset();
 		nouvellePartie();
-	}
-	
-	public void jouer(){
-		BufferedReader entree = new BufferedReader(new InputStreamReader(System.in));
-		int o,d;
-		o=0;
-		d=0;
-		System.out.println("Phase de jeu");
-		while(!fini()){
-			//Tant que les case selectionnées ne sont pas valide (ie : o est au joueur et d est libre) on rerentre les valeurs
-			do{
-				System.out.println(joueurCourant);
-				try {
-					o=Integer.parseInt(entree.readLine());
-					d=Integer.parseInt(entree.readLine());
-				} catch( IOException e ) {e.printStackTrace();}
-			}while(damier.getCase(o-1).getJoueur()!=getJoueurCourant() || damier.getCase(d-1).getLibre());
-			try{
-				getJoueurCourant().jouer(damier.getCase(o-1),damier.getCase(d-1));
-				changerJoueurCourant();
-			}catch( CaseInvalideException e){
-				System.out.println("La case est invalide !");
-			}
-				// !!! AFFICHAGE EN CONSOLE A SUPPRIMER PLUS TARD !!!
-			System.out.println(damier);
-			//!!!
-		}
-		changerJoueurCourant();
-		getJoueurCourant().addScore();
-		System.out.println("Victoire du Joueur : "+ (joueurCourant.getId()+1));
-		System.out.println("Scores : J1 - "+getJoueur(0).getScore()+" J2 - "+((JoueurMorpionAfricain)(joueurs[1].getJoueurSuivant())).getScore());
 	}
 	
 	public boolean fini(){
