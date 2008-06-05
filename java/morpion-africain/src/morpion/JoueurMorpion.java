@@ -47,11 +47,10 @@ public class JoueurMorpion extends Joueur{
 			ajouterCaseOccupee(c);
 		}else{
 			throw new CaseInvalideException();
-		}
-		
+		}		
 	}
 	
-	public void reinitialiser(){
+	public void reset(){
 		casesOccupees.clear();
 	}
 	
