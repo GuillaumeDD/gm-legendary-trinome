@@ -84,7 +84,7 @@ public class FenetreMorpionAfricain extends JFrame{
     }
     
     public void reset(){
-    	jeuCourant.reinitialiser();
-	    infos.setText(jeuCourant.getJoueurCourant()+" commence");
+    	jeuCourant.reset();
+	    infos.setText(jeuCourant.getJoueurCourant()+" commence ");
     }
 }
