@@ -1,18 +1,18 @@
-package morpionAfricain;
+package morpion;
 	import java.util.ArrayList;
 import java.util.List;
 import jeu.*;
 
-public class JoueurMorpionAfricain extends Joueur{
+public class JoueurMorpion extends Joueur{
 	
-	private List<CaseMorpionAfricain> casesOccupees = new ArrayList<CaseMorpionAfricain>();
+	private List<CaseMorpion> casesOccupees = new ArrayList<CaseMorpion>();
 	private int score;
 	
-	public JoueurMorpionAfricain(){
+	public JoueurMorpion(){
 		super();
 	}
 	
-	public JoueurMorpionAfricain(int i){
+	public JoueurMorpion(int i){
 		super(i);
 		score=0;
 	}
@@ -41,7 +41,7 @@ public class JoueurMorpionAfricain extends Joueur{
 		return score;
 	}
 	
-	public void initialiser(CaseMorpionAfricain c) throws CaseInvalideException{	
+	public void initialiser(CaseMorpion c) throws CaseInvalideException{	
 		if(c.getLibre()){
 			c.setLibre(false,this);
 			ajouterCaseOccupee(c);
@@ -55,7 +55,7 @@ public class JoueurMorpionAfricain extends Joueur{
 		casesOccupees.clear();
 	}
 	
-	public void jouer(CaseMorpionAfricain origine,CaseMorpionAfricain destination) throws CaseInvalideException{
+	public void jouer(CaseMorpion origine,CaseMorpion destination) throws CaseInvalideException{
 		if(estUneCaseOccupee(origine) && destination.getLibre() && origine.estAdjacent(destination) && destination.estAdjacent(origine)){
 			origine.setLibre(true,null);
 			destination.setLibre(false,this);
@@ -66,15 +66,15 @@ public class JoueurMorpionAfricain extends Joueur{
 		}
 	}
 	
-	public void ajouterCaseOccupee(CaseMorpionAfricain c){
+	public void ajouterCaseOccupee(CaseMorpion c){
 		casesOccupees.add(c);
 	}
 	
-	public void supprimerCaseOccupee(CaseMorpionAfricain c){
+	public void supprimerCaseOccupee(CaseMorpion c){
 		casesOccupees.remove(c);		
 	}
 	
-	public boolean estUneCaseOccupee(CaseMorpionAfricain c){
+	public boolean estUneCaseOccupee(CaseMorpion c){
 		boolean res=true;
 		if(!casesOccupees.contains(c)){
 			res=false;
@@ -82,7 +82,7 @@ public class JoueurMorpionAfricain extends Joueur{
 		return res;
 	}
 	
-	public List<CaseMorpionAfricain> getCasesOccupees(){
+	public List<CaseMorpion> getCasesOccupees(){
 		return casesOccupees;
 	}
 	
