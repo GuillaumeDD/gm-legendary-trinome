@@ -7,6 +7,7 @@ public class MorpionAfricain extends Jeu{
 	int partie=0;
 //on redefinit un joueurCourant de type JoueurMorpionAfricain car il doit pouvoir utiliser les méthodes initialiser() et jouer()
 	Joueur joueurCourant; 
+	ArrayList<ArrayList<Integer>> solutions;
 	
 	public MorpionAfricain(){
 		// on ajoute les deux joueurs
@@ -17,6 +18,40 @@ public class MorpionAfricain extends Jeu{
 		
         initialiserJoueurs();
 		
+        //Initialisation des solutions
+        solutions = new ArrayList<ArrayList<Integer>>();
+        solutions.add(new ArrayList<Integer>());
+		solutions.get(0).add(0);
+		solutions.get(0).add(1);
+		solutions.get(0).add(2);
+		solutions.add(new ArrayList<Integer>());
+		solutions.get(1).add(3);
+		solutions.get(1).add(4);
+		solutions.get(1).add(5);
+		solutions.add(new ArrayList<Integer>());
+		solutions.get(2).add(6);
+		solutions.get(2).add(7);
+		solutions.get(2).add(8);
+		solutions.add(new ArrayList<Integer>());
+		solutions.get(3).add(0);
+		solutions.get(3).add(3);
+		solutions.get(3).add(6);
+		solutions.add(new ArrayList<Integer>());
+		solutions.get(4).add(1);
+		solutions.get(4).add(4);
+		solutions.get(4).add(7);
+		solutions.add(new ArrayList<Integer>());
+		solutions.get(5).add(2);
+		solutions.get(5).add(5);
+		solutions.get(5).add(8);
+		solutions.add(new ArrayList<Integer>());
+		solutions.get(6).add(0);
+		solutions.get(6).add(4);
+		solutions.get(6).add(8);
+		solutions.add(new ArrayList<Integer>());
+		solutions.get(7).add(2);
+		solutions.get(7).add(4);
+		solutions.get(7).add(6);
 		damier=new DamierMorpionAfricain();
 		
 	}
@@ -60,9 +95,7 @@ public class MorpionAfricain extends Jeu{
 
 
 		}
-		// !!! AFFICHAGE EN CONSOLE A SUPPRIMER PLUS TARD !!!
 		System.out.println(damier);
-		//!!!
 	}
 	
 	public void reset(){
@@ -106,42 +139,6 @@ public class MorpionAfricain extends Jeu{
 	public boolean fini(){
 		boolean res=false;
 		
-		ArrayList<ArrayList<Integer>> solutions = new ArrayList<ArrayList<Integer>>();
-		
-		
-		solutions.add(new ArrayList<Integer>());
-		solutions.get(0).add(0);
-		solutions.get(0).add(1);
-		solutions.get(0).add(2);
-		solutions.add(new ArrayList<Integer>());
-		solutions.get(1).add(3);
-		solutions.get(1).add(4);
-		solutions.get(1).add(5);
-		solutions.add(new ArrayList<Integer>());
-		solutions.get(2).add(6);
-		solutions.get(2).add(7);
-		solutions.get(2).add(8);
-		solutions.add(new ArrayList<Integer>());
-		solutions.get(3).add(0);
-		solutions.get(3).add(3);
-		solutions.get(3).add(6);
-		solutions.add(new ArrayList<Integer>());
-		solutions.get(4).add(1);
-		solutions.get(4).add(4);
-		solutions.get(4).add(7);
-		solutions.add(new ArrayList<Integer>());
-		solutions.get(5).add(2);
-		solutions.get(5).add(5);
-		solutions.get(5).add(8);
-		solutions.add(new ArrayList<Integer>());
-		solutions.get(6).add(0);
-		solutions.get(6).add(4);
-		solutions.get(6).add(8);
-		solutions.add(new ArrayList<Integer>());
-		solutions.get(7).add(2);
-		solutions.get(7).add(4);
-		solutions.get(7).add(6);
-
 		int i=0;	
 		if(getJoueur(0).getCasesOccupees().size()==3){
 			List<Integer> casesJoueur0 = new ArrayList<Integer>();
