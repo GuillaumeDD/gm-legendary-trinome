@@ -78,8 +78,8 @@ public class FenetreMorpionAfricain extends JFrame{
         	public void actionPerformed(ActionEvent e){
         		((JoueurMorpionAfricainGraphique)joueurs[0]).reinitialiser();
         		((JoueurMorpionAfricainGraphique)joueurs[1]).reinitialiser();
-        		damier.reinitialiser();
-        	    infos.setText(joueurs[0].getNom()+" commence");
+        		damier.getMorpion().reinitialiser();
+        	    infos.setText(damier.getMorpion().getJoueurCourant().getNom()+" commence");
         	}
         });
      

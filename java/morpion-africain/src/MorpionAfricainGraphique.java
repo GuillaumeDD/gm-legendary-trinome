@@ -95,4 +95,12 @@ public class MorpionAfricainGraphique extends MorpionAfricain{
 			partieEnCours=false;
 		}	
 	}
+    
+    public void reinitialiser(){
+    	super.reinitialiser();
+    	for(int i=0;i<9;i++)
+    		getDamier().getCase(i).setColor(-1);
+    	partieEnCours=true;
+    	setTour(0);
+    }
 }

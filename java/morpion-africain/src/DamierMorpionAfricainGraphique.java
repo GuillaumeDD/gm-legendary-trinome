@@ -88,11 +88,7 @@ public class DamierMorpionAfricainGraphique extends DamierMorpionAfricain{
     	return (CaseMorpionAfricainGraphique)cases[i];
     }
     
-    public void reinitialiser(){
-    	super.reinitialiser();
-    	for(int i=0;i<9;i++)
-    		getCase(i).setColor(-1);
-    	morpion.partieEnCours=true;
-    	morpion.setTour(0);
+    public MorpionAfricainGraphique getMorpion(){
+    	return morpion;
     }
 }
