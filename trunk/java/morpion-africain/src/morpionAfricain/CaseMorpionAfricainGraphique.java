@@ -22,13 +22,9 @@ public class CaseMorpionAfricainGraphique extends CaseMorpionAfricain{
         boutonGraphique.setVisible(true);
         morpion=m;
         
-
-        
         boutonGraphique.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent e){
-        		
         		morpion.boutonActionne(getId());
-        		
         	}
         });
     }
@@ -44,10 +40,7 @@ public class CaseMorpionAfricainGraphique extends CaseMorpionAfricain{
     public void setColor(){
     	boutonGraphique.setBackground(getJoueur().getCouleur());
     }
-    
-	public CaseMorpionAfricain getThisCase(){
-		return this;
-	}
+	
 	public void setLibre(boolean lib,Joueur j){
 		super.setLibre(lib, j);
 		if(getLibre()){
@@ -60,6 +53,7 @@ public class CaseMorpionAfricainGraphique extends CaseMorpionAfricain{
 	public JoueurMorpionAfricainGraphique getJoueur(){
 		return (JoueurMorpionAfricainGraphique)super.getJoueur();
 	}
+	
 	public void reset(){
 		super.reset();
 		resetColor();

@@ -66,8 +66,11 @@ public class MorpionGraphique extends Morpion{
 	public void verifierEtatDeLaPartie(){
 		if(fini()){
 			changerJoueurCourant();
-			getJoueurCourant().addScore();
-			fenetre.setTextInfos("Victoire de : "+ joueurCourant);
+			if(!partieEgalite()){
+				getJoueurCourant().addScore();
+				fenetre.setTextInfos("Victoire de : "+ joueurCourant);
+			}else
+				fenetre.setTextInfos("Egalité");
 			partieEnCours=false;
 		}	
 	}
@@ -92,5 +95,13 @@ public class MorpionGraphique extends Morpion{
     
     public JoueurMorpionGraphique getJoueur(int id){
     	return (JoueurMorpionGraphique)joueurs[id];
+    }
+    
+    public boolean partieEgalite(){
+    	boolean res=false;
+    	if(getJoueur(0).getCasesOccupees().size()+getJoueur(1).getCasesOccupees().size()==9 && joueurVainqueur==null){
+    		res=true;
+    	}
+    	return res;
     }
 }

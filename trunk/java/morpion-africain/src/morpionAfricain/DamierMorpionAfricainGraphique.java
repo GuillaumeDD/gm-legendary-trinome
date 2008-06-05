@@ -19,7 +19,6 @@ public class DamierMorpionAfricainGraphique extends DamierMorpionAfricain{
         Image img = Toolkit.getDefaultToolkit().getImage("./src/grille-complete.png" );
         terrainDeJeu=new DrawingPanel(img);
         
-        
         for(int i=0;i<9;i++){
             terrainDeJeu.add(((CaseMorpionAfricainGraphique)cases[i]).getButton());
         }
@@ -56,7 +55,6 @@ public class DamierMorpionAfricainGraphique extends DamierMorpionAfricain{
         terrainDeJeu.setVisible(true);
     }
     
-    
     public JPanel getTerrainDeJeu(){
         return terrainDeJeu;
     }
@@ -76,9 +74,5 @@ public class DamierMorpionAfricainGraphique extends DamierMorpionAfricain{
     
     public CaseMorpionAfricainGraphique getCase(int i){
     	return (CaseMorpionAfricainGraphique)cases[i];
-    }
-    
-    public MorpionAfricainGraphique getMorpion(){
-    	return morpion;
     }
 }
