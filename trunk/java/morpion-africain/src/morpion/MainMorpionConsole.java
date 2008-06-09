@@ -1,6 +1,6 @@
 package morpion;
 
-public class MainConsole {
+public class MainMorpionConsole {
   public static void main(String args[]){
 	  MorpionConsole m = new MorpionConsole();
 	  boolean b=true;
