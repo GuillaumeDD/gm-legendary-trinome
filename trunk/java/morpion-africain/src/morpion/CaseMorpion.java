@@ -2,11 +2,7 @@ package morpion;
 import jeu.*;
 import java.util.*;
 public class CaseMorpion extends Case{
-	/*
-	 * Les listes en java :
-	 * 		http://fmora.developpez.com/tutoriel/java/collections/introduction/#L3.2
-	 * 		http://java.sun.com/j2se/1.4.2/docs/api/java/util/ArrayList.html 
-	 */
+	
 	List<CaseMorpion> adjacents = new ArrayList<CaseMorpion>();	
 	
 	public CaseMorpion(){
