@@ -1,5 +1,5 @@
 package morpion;
-import java.io.*;import jeu.*;
+import jeu.*;
 import java.util.ArrayList;
 import java.util.List;
 public class Morpion extends Jeu{
