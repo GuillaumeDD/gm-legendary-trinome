@@ -63,7 +63,6 @@ public class MorpionAfricainConsole extends MorpionAfricain{
 		}
 		changerJoueurCourant();
 		getJoueurCourant().addScore();
-		System.out.println("plop"+getJoueurCourant().getScore());
 		System.out.println("Victoire du Joueur : "+ (joueurCourant.getId()+1));
 		System.out.println("Scores : J1 - "+getJoueur(0).getScore()+" J2 - "+getJoueur(1).getScore());
 	}
