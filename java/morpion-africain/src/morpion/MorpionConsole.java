@@ -23,7 +23,7 @@ public class MorpionConsole extends Morpion{
 			System.out.println(damier);
 			do{
 				try {
-					System.out.println("Joueur "+joueurCourant.getId());
+					System.out.println(joueurCourant);
 					System.out.println("Entrer la case : ");
 					c=Integer.parseInt(entree.readLine());
 					

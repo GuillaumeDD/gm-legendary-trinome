@@ -7,6 +7,8 @@ public class Joueur extends Personne{
 	int id;
 	
 	public Joueur(){
+		super();
+		id=0;
 	}
 	
 	public Joueur(int i){

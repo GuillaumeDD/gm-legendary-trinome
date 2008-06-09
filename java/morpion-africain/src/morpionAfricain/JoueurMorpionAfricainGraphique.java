@@ -28,7 +28,7 @@ public class JoueurMorpionAfricainGraphique extends JoueurMorpionAfricain{
 	}
 	
 	public void setNom(StringBuffer nom){
-		this.modifierNom(nom.toString());
+		super.setNom(nom.toString());
 	}
 	
 	public Color getCouleur(){
