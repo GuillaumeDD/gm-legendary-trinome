@@ -13,8 +13,8 @@ public class Morpion extends Jeu{
 		// on ajoute les deux joueurs
 		super(2);
 		joueurCourant=new JoueurMorpion();
-		joueurs[0]=new JoueurMorpion();
-		joueurs[1]=new JoueurMorpion();
+		joueurs[0]=new JoueurMorpion(0);
+		joueurs[1]=new JoueurMorpion(1);
 		joueurVainqueur= new JoueurMorpion();
 		joueurTest = new JoueurMorpion();
         initialiserJoueurs();
@@ -58,8 +58,6 @@ public class Morpion extends Jeu{
 	}
         
     public void initialiserJoueurs(){
-      	joueurs[0].setId(0);
-		joueurs[1].setId(1);
 			
 		joueurs[0].setJoueurPrecedent(joueurs[1]);
 		joueurs[0].setJoueurSuivant(joueurs[1]);

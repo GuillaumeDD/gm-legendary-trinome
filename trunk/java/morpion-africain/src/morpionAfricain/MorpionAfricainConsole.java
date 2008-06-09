@@ -16,6 +16,7 @@ public class MorpionAfricainConsole extends MorpionAfricain{
 		System.out.println("Phase d'initialisation");
 		int c=0;	
 		while(i<6){
+			System.out.println(damier);
 			do{
 				try {
 					System.out.println(joueurCourant);

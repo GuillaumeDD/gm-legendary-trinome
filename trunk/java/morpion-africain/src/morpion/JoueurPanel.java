@@ -76,6 +76,6 @@ public class JoueurPanel extends JPanel{
     
     public void setNom(String nom){
     	titre.setText(nom);
-    	joueur.modifierNom(nom);
+    	joueur.setNom(nom);
     }
 }
