@@ -1,8 +1,7 @@
 package morpionAfricain;
 
-public class Main {
+public class MainConsole {
   public static void main(String args[]){
-	  //MorpionAfricainGraphique m = new MorpionAfricainGraphique();
 	  MorpionAfricainConsole m = new MorpionAfricainConsole();
 	  boolean b=true;
 	  do{
