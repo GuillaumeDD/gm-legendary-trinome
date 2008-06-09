@@ -4,7 +4,7 @@ public class Personne {
 	private String nom;
 	
 	public Personne(){
-		nom=new String();
+		nom=new String("unamed");
 	}
 	
 	public Personne(String n){
