@@ -1,6 +1,6 @@
 package jeu;
 
-public class Case {
+public abstract class Case {
 
 	int id;
 	boolean libre;

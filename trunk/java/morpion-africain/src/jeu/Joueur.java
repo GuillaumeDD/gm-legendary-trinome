@@ -1,6 +1,6 @@
 package jeu;
 
-public class Joueur extends Personne{
+public abstract class Joueur extends Personne{
 
 	public Joueur joueurPrecedent;
 	public Joueur joueurSuivant;
