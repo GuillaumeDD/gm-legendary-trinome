@@ -1,6 +1,6 @@
 package jeu;
 
-public class Jeu {
+public abstract class Jeu {
 	public Joueur joueurs[];
 	int nombreDeJoueurs;
 	Joueur joueurCourant;
