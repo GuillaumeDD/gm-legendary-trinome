@@ -1,6 +1,6 @@
 package morpion;
 
-import javax.swing.*;import jeu.*;
+import javax.swing.*;
 import java.awt.*;
 public class DamierMorpionGraphique extends DamierMorpion{
 	private MorpionGraphique morpion;
